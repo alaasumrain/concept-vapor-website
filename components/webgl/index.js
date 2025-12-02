@@ -2,7 +2,7 @@ import { Float, useGLTF } from '@react-three/drei'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useFrame as useRaf } from '@darkroom.engineering/hamo'
 import { useScroll } from 'hooks/use-scroll'
-import { button, useControls } from 'leva'
+// Removed leva controls - using static values instead
 import { mapRange } from 'lib/maths'
 import { useStore } from 'lib/store'
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
@@ -247,99 +247,25 @@ export function Arm() {
   const { scene: arm2 } = useGLTF('/models/arm2.glb')
   const [type, setType] = useState(1)
 
-  const [{ color, roughness, metalness, wireframe }, setMaterial] = useControls(
-    () => ({
-      color: '#b0b0b0',
-      roughness: {
-        min: 0,
-        value: 0.4,
-        max: 1,
-      },
-      metalness: {
-        min: 0,
-        value: 1,
-        max: 1,
-      },
-      wireframe: false,
-    }),
-    []
-  )
+  // Static values - removed leva controls
+  const color = '#b0b0b0'
+  const roughness = 0.4
+  const metalness = 1
+  const wireframe = false
 
-  const [
-    {
-      lightsColor,
-      light1,
-      light2,
-      light1Intensity,
-      light2Intensity,
-      ambientColor,
-    },
-    setLights,
-  ] = useControls(
-    'lights',
-    () => ({
-      light1: {
-        step: 1,
-        value: [-200, 150, 50],
-      },
-      light2: {
-        step: 1,
-        value: [300, -100, 150],
-      },
-      // light1Intensity: {
-      //   min: 0,
-      //   value: 0.4,
-      //   max: 1,
-      // },
-      // light2Intensity: {
-      //   min: 0,
-      //   value: 0.69,
-      //   max: 1,
-      // },
-      light1Intensity: {
-        min: 0,
-        value: 1,
-        max: 1,
-      },
-      light2Intensity: {
-        min: 0,
-        value: 1,
-        max: 1,
-      },
-      lightsColor: '#006496', // Professional blue
-      ambientColor: '#0E0E0E',
-    }),
-    []
-  )
+  const lightsColor = '#006496' // Professional blue
+  const light1 = [-200, 150, 50]
+  const light2 = [300, -100, 150]
+  const light1Intensity = 1
+  const light2Intensity = 1
+  const ambientColor = '#0E0E0E'
 
-  const [{ custom, scale, position, rotation }] = useControls('model', () => ({
-    custom: false,
-    scale: {
-      min: 0,
-      value: 0.05,
-      max: 0.06,
-      step: 0.001,
-    },
-    position: { value: [0, 0, 0] },
-    rotation: { step: 1, min: -360, value: [0, 0, 0], max: 360 },
-  }))
+  const custom = false
+  const scale = 0.05
+  const position = [0, 0, 0]
+  const rotation = [0, 0, 0]
 
-  useControls(
-    'model',
-    () => ({
-      export: button(() => {
-        alert(
-          JSON.stringify({
-            scale: scale.toFixed(3),
-            position,
-            rotation,
-            type,
-          })
-        )
-      }),
-    }),
-    [scale, position, rotation, type]
-  )
+  // Removed export button and useControls
 
   useEffect(() => {
     material.color = new Color(color)
@@ -373,42 +299,8 @@ export function Arm() {
     return Object.values(_thresholds).sort((a, b) => a - b)
   }, [_thresholds])
 
-  const [step, setStep] = useState(0)
-
-  useEffect(() => {
-    if (step === 0) {
-      setLights({
-        light1Intensity: 0.35,
-        light2Intensity: 0.15,
-        lightsColor: '#006496', // Professional blue
-        ambientColor: '#006496',
-      })
-      setMaterial({
-        color: '#b0b0b0',
-        roughness: 0.4,
-        metalness: 1,
-      })
-    } else {
-      setLights({
-        light1Intensity: 1,
-        light2Intensity: 1,
-        lightsColor: '#efefef',
-        ambientColor: '#b0B0B0',
-      })
-      setMaterial({
-        color: '#efefef',
-        roughness: 0.4,
-        metalness: 0.6,
-      })
-    }
-  }, [step])
-
-  useScroll(
-    ({ scroll }) => {
-      setStep(scroll < _thresholds['light-start'] ? 0 : 1)
-    },
-    [_thresholds]
-  )
+  // Removed step state and useEffect - using static values only
+  // Removed useScroll hook that used setStep
 
   useScroll(({ scroll }) => {
     if (!parent.current) return

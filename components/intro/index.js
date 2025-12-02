@@ -96,26 +96,13 @@ const LNS = ({ isLoaded, className, fill }) => {
           y="168"
           textAnchor="middle"
           dominantBaseline="middle"
-          fontSize="120"
+          fontSize="180"
           fontFamily="var(--font-panchang)"
           fontWeight="700"
           className={cn(s.start, isLoaded && s.show)}
           style={{ '--index': 1 }}
         >
-          Concept
-        </text>
-        <text
-          x="680"
-          y="240"
-          textAnchor="middle"
-          dominantBaseline="middle"
-          fontSize="120"
-          fontFamily="var(--font-panchang)"
-          fontWeight="700"
-          className={cn(s.start, isLoaded && s.show)}
-          style={{ '--index': 2 }}
-        >
-          Vapor
+          CVS
         </text>
       </g>
     </svg>
@@ -131,19 +118,7 @@ const EI = ({ isLoaded, className, fill }) => {
       className={cn(s.ei, className)}
     >
       <g fill={fill}>
-        <text
-          x="680"
-          y="168"
-          textAnchor="middle"
-          dominantBaseline="middle"
-          fontSize="120"
-          fontFamily="var(--font-panchang)"
-          fontWeight="700"
-          className={cn(s.start, isLoaded && s.show)}
-          style={{ '--index': 3 }}
-        >
-          Solutions
-        </text>
+        {/* Empty - CVS is now single component */}
       </g>
     </svg>
   )
