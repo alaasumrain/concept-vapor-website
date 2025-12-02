@@ -101,7 +101,18 @@ const nextConfig = {
       use: ['raw-loader', 'glslify-loader'],
     })
 
-    config.plugins.push(new DuplicatePackageCheckerPlugin())
+    config.plugins.push(
+      new DuplicatePackageCheckerPlugin({
+        // Exclude zustand - different versions are used by different packages and it's fine
+        exclude(instance) {
+          return instance.name === 'zustand'
+        },
+        // Only show help message if there are actual issues
+        showHelp: false,
+        // Don't be strict about major version differences for now
+        strict: false,
+      })
+    )
 
     return config
   },

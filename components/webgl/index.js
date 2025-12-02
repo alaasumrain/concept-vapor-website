@@ -89,9 +89,7 @@ function Particles({
         value: 0,
       },
       uColor: {
-        // value: new Color('rgb(255, 152, 162)'),
-        value: new Color('rgb(255, 207, 206)'),
-        // value: new Color('rgb(255, 236, 234)'),
+        value: new Color('rgb(0, 100, 150)'), // Professional blue - matches primary color
       },
       uScroll: {
         value: 0,
@@ -237,7 +235,7 @@ const steps = [
 // const thresholds = [0, 1000, 2000, 3000, 4000, 5000]
 
 const material = new MeshPhysicalMaterial({
-  color: new Color('#FF98A2'),
+  color: new Color('#006496'), // Professional blue - matches brand
   metalness: 1,
   roughness: 0.4,
   wireframe: true,
@@ -308,7 +306,7 @@ export function Arm() {
         value: 1,
         max: 1,
       },
-      lightsColor: '#FF98A2',
+      lightsColor: '#006496', // Professional blue
       ambientColor: '#0E0E0E',
     }),
     []
@@ -382,8 +380,8 @@ export function Arm() {
       setLights({
         light1Intensity: 0.35,
         light2Intensity: 0.15,
-        lightsColor: '#FF98A2',
-        ambientColor: '#FF98A2',
+        lightsColor: '#006496', // Professional blue
+        ambientColor: '#006496',
       })
       setMaterial({
         color: '#b0b0b0',

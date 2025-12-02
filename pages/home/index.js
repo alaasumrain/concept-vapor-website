@@ -16,7 +16,6 @@ import dynamic from 'next/dynamic'
 import { useEffect, useRef, useState } from 'react'
 import { useIntersection, useWindowSize } from 'react-use'
 import s from './home.module.scss'
-import { Modal } from 'components/modal'
 
 // const SFDR = dynamic(() => import('icons/sfdr.svg'), { ssr: false })
 const GitHub = dynamic(() => import('icons/github.svg'), { ssr: false })
@@ -215,9 +214,9 @@ export default function Home() {
     <Layout
       theme={theme}
       seo={{
-        title: 'Lenis – Get smooth or die trying',
+        title: 'Concept Vapor Solutions – Next-Generation Manufacturing',
         description:
-          'A smooth scroll library fresh out of the darkroom.engineering.',
+          'Delivering next-generation vapor technologies, functional nutrition, and advanced supplementation formats from Dubai\'s premier manufacturing hub.',
       }}
       className={s.home}
     >
@@ -225,19 +224,17 @@ export default function Home() {
         <WebGL />
       </div>
 
-      <Modal />
-
       <section className={s.hero}>
         <div className="layout-grid-inner">
           <Title className={s.title} />
           {/* <SFDR className={cn(s.icon, introOut && s.show)} /> */}
           <span className={cn(s.sub)}>
             <HeroTextIn introOut={introOut}>
-              <h2 className={cn('h3', s.subtitle)}>Smooth Scroll</h2>
+              <h2 className={cn('h3', s.subtitle)}>Innovation. Precision. Compliance.</h2>
             </HeroTextIn>
             <HeroTextIn introOut={introOut}>
               <h2 className={cn('p-xs', s.tm)}>
-                <span>©</span> {new Date().getFullYear()} darkroom.engineering
+                <span>©</span> {new Date().getFullYear()} Concept Vapor Solutions
               </h2>
             </HeroTextIn>
           </span>
@@ -257,36 +254,36 @@ export default function Home() {
                 <p>scroll</p>
               </HeroTextIn>
               <HeroTextIn introOut={introOut}>
-                <p> to explore</p>
+                <p> to discover</p>
               </HeroTextIn>
             </div>
           </div>
           <h1 className={cn(s.description, 'p-s')}>
             <HeroTextIn introOut={introOut}>
-              <p className="p-s">A smooth scroll library</p>
+              <p className="p-s">Delivering next-generation vapor technologies</p>
             </HeroTextIn>
             <HeroTextIn introOut={introOut}>
-              <p className="p-s">fresh out of darkroom.engineering</p>
+              <p className="p-s">functional nutrition, and advanced supplementation</p>
             </HeroTextIn>
             <HeroTextIn introOut={introOut}>
-              <p className="p-s">website designed by Studio Freight</p>
+              <p className="p-s">from Dubai's premier manufacturing hub</p>
             </HeroTextIn>
           </h1>
           <Button
             className={cn(s.cta, s.documentation, introOut && s.in)}
             arrow
             icon={<GitHub />}
-            href="https://github.com/darkroomengineering/lenis/blob/main/README.md"
+            href="#divisions"
           >
-            documentation
+            explore solutions
           </Button>
           <Button
             className={cn(s.cta, s.sponsor, introOut && s.in)}
             arrow
             icon={<Sponsor />}
-            href="https://github.com/sponsors/darkroomengineering"
+            href="#contact"
           >
-            become a sponsor
+            contact us
           </Button>
         </div>
       </section>
@@ -294,83 +291,67 @@ export default function Home() {
       <section className={s.why} data-lenis-scroll-snap-align="start">
         <div className="layout-grid">
           <h2 className={cn(s.sticky, 'h2')}>
-            <AppearTitle>Why smooth scroll?</AppearTitle>
+            <AppearTitle>Who We Are</AppearTitle>
           </h2>
           <aside className={s.features} ref={whyRectRef}>
             <div className={s.feature}>
               <p className="p">
-                We’ve heard all the reasons to not use smooth scroll. It feels
-                hacky. It’s inaccessible. It’s not performant. It’s
-                over-engineered. And historically, those were all true. But we
-                like to imagine things as they could be, then build them. So,
-                why should you use smooth scroll?
+                Concept Vapor Solutions is a next-generation manufacturing company 
+                located in the Jebel Ali Free Zone of Dubai, UAE. We specialize in 
+                Electronic Nicotine Delivery Systems (ENDS), functional foods & 
+                nutritional supplements, and alternative delivery solutions for 
+                modern wellness and performance.
               </p>
             </div>
             <div className={s.feature}>
               <h3 className={cn(s.title, 'h4')}>
-                Create more immersive interfaces
+                Innovation
               </h3>
               <p className="p">
-                Unlock the creative potential and impact of your web
-                experiences. Smoothing the scroll pulls users into the flow of
-                the experience that feels so substantial that they forget
-                they’re navigating a web page.
+                We invest heavily in R&D to bring high-performance solutions to 
+                market in ENDS, functional foods, and advanced delivery systems. 
+                Our commitment to innovation drives everything we do.
               </p>
             </div>
             <div className={s.feature}>
               <h3 className={cn(s.title, 'h4')}>
-                Normalize all your user inputs
+                Precision
               </h3>
               <p className="p">
-                Give all your users the same (dope) experience whether they’re
-                using trackpads, mouse wheels, or otherwise. With smooth scroll,
-                you control how silky, heavy, or responsive the experience
-                should be — no matter the input. Magic!
+                World-class facility with ISO Class 7 & 8 cleanrooms, GMP-compliant 
+                processing lines, and automated systems. Every product meets the 
+                highest standards of quality and precision.
               </p>
             </div>
             <div className={s.feature}>
               <h3 className={cn(s.title, 'h4')}>
-                Make your animations flawless
+                Compliance
               </h3>
               <p className="p">
-                Synchronization with native scroll is not reliable. Those jumps
-                and delays with scroll-linked animations are caused by
-                multi-threading, where modern browsers run animations/effects
-                asynchronously with the scroll. Smooth scroll fixes this.
+                ISO 9001, ISO 22000, GMP & HACCP certified. Full ESMA and UAE 
+                compliance. We maintain the highest regulatory standards across 
+                all our divisions.
               </p>
             </div>
           </aside>
         </div>
       </section>
-      <section className={s.rethink}>
+      <section className={s.rethink} id="divisions">
         <div className={cn('layout-grid', s.pre)}>
           <div className={s.highlight} data-lenis-scroll-snap-align="start">
             <Parallax speed={-0.5}>
               <p className="h2">
-                <AppearTitle>Rethinking smooth scroll</AppearTitle>
+                <AppearTitle>Our Divisions</AppearTitle>
               </p>
             </Parallax>
           </div>
           <div className={s.comparison}>
             <Parallax speed={0.5}>
               <p className="p">
-                We have to give props to libraries like{' '}
-                <Link
-                  className="contrast semi-bold"
-                  href="https://github.com/locomotivemtl/locomotive-scroll"
-                >
-                  Locomotive Scroll
-                </Link>{' '}
-                and{' '}
-                <Link
-                  className="contrast semi-bold"
-                  href="https://greensock.com/docs/v3/Plugins/ScrollSmoother"
-                >
-                  GSAP ScrollSmoother
-                </Link>
-                . They’re well built and well documented – and we’ve used them a
-                lot. But they still have issues that keep them from being
-                bulletproof.
+                We operate three specialized divisions, each delivering cutting-edge 
+                solutions in their respective fields. From ENDS devices to functional 
+                nutrition and advanced delivery systems, we bring innovation and 
+                precision to every product we manufacture.
               </p>
             </Parallax>
           </div>
@@ -380,27 +361,27 @@ export default function Home() {
             <Card
               className={s.card}
               number="01"
-              text="Loss of performance budget due to using CSS transforms"
+              text="Electronic Nicotine Delivery Systems – Manufacturing ENDS devices and e-liquids under strict regulatory frameworks"
             />
             <Card
               className={s.card}
               number="02"
-              text="Inaccessibility from no page search support and native scrollbar"
+              text="Functional Foods & Supplements – High-protein foods, prebiotic formulations, and wellness-focused nutritional products"
             />
             <Card
               className={s.card}
               number="03"
-              text="Non-negligible import costs (12.1kb - 24.34kb gzipped)"
+              text="Advanced Delivery Solutions – Oral thin films, chewable formats, sprays, and micro-encapsulated actives"
             />
             <Card
               className={s.card}
               number="04"
-              text="Limited animation systems for complex, scroll-based animations"
+              text="World-Class Facility – ISO Class 7 & 8 cleanrooms with GMP-compliant processing and automated systems"
             />
             <Card
               className={s.card}
               number="05"
-              text="Erasing native APIs like Intersection-Observer, CSS Sticky, etc."
+              text="Certified Excellence – ISO 9001, ISO 22000, GMP, HACCP, and full ESMA compliance"
             />
           </HorizontalSlides>
         </div>
@@ -415,13 +396,13 @@ export default function Home() {
         <div className={s.inner}>
           <div className={s.zoom}>
             <h2 className={cn(s.first, 'h1 vh')}>
-              so we built <br />
-              <span className="contrast">web scrolling</span>
+              world-class <br />
+              <span className="contrast">manufacturing</span>
             </h2>
             <h2 className={cn(s.enter, 'h3 vh')}>
-              Enter <br /> Lenis
+              Concept <br /> Vapor Solutions
             </h2>
-            <h2 className={cn(s.second, 'h1 vh')}>As it should be</h2>
+            <h2 className={cn(s.second, 'h1 vh')}>Innovation. Precision. Compliance.</h2>
           </div>
         </div>
       </section>
@@ -429,17 +410,35 @@ export default function Home() {
         <div className={s.inner}>
           <div className={cn('layout-block', s.intro)}>
             <p className="p-l">
-              Lenis is an{' '}
-              <Link
-                className="contrast semi-bold"
-                href="https://github.com/darkroomengineering/lenis"
-              >
-                open-source library
-              </Link>{' '}
-              built to standardize scroll experiences and sauce up websites with
-              butter-smooth navigation, all while using the platform and keeping
-              it accessible.
+              Built for precision.<br />
+              Certified for excellence.
             </p>
+            <div className={s.facilityDetails}>
+              <div className={s.facilityFact}>
+                <span className={s.factLabel}>Location</span>
+                <span className={s.factValue}>Jebel Ali Free Zone, Dubai</span>
+              </div>
+              <div className={s.facilityFact}>
+                <span className={s.factLabel}>Cleanrooms</span>
+                <span className={s.factValue}>ISO Class 7 & 8</span>
+              </div>
+              <div className={s.facilityFact}>
+                <span className={s.factLabel}>Standards</span>
+                <span className={s.factValue}>GMP-compliant</span>
+              </div>
+              <div className={s.facilityFact}>
+                <span className={s.factLabel}>Air Quality</span>
+                <span className={s.factValue}>HEPA filtration</span>
+              </div>
+              <div className={s.facilityFact}>
+                <span className={s.factLabel}>Systems</span>
+                <span className={s.factValue}>Automated filling, packaging & batching</span>
+              </div>
+              <div className={s.facilityFact}>
+                <span className={s.factLabel}>Operations</span>
+                <span className={s.factValue}>Segregated nicotine, food & supplement zones</span>
+              </div>
+            </div>
           </div>
         </div>
         <section ref={featuresRectRef}>
@@ -457,26 +456,105 @@ export default function Home() {
           <aside className={s.title}>
             <p className="h3">
               <AppearTitle>
-                <span>Lenis</span>
+                <span>Our</span>
 
                 <br />
-                <span className="grey">in use</span>
+                <span className="grey">Divisions</span>
               </AppearTitle>
             </p>
           </aside>
           <ul className={s.list}>
-            {projects.map(({ title, source, href }, i) => (
-              <li key={i}>
-                <ListItem
-                  title={title}
-                  source={source}
-                  href={href}
-                  index={i}
-                  visible={visible}
-                />
-              </li>
-            ))}
+            <li>
+              <ListItem
+                title="Electronic Nicotine Delivery Systems"
+                source="ENDS Manufacturing"
+                href="#ends"
+                index={0}
+                visible={visible}
+              />
+            </li>
+            <li>
+              <ListItem
+                title="Functional Foods & Supplements"
+                source="Nutritional Products"
+                href="#functional-foods"
+                index={1}
+                visible={visible}
+              />
+            </li>
+            <li>
+              <ListItem
+                title="Advanced Delivery Solutions"
+                source="Innovation Formats"
+                href="#delivery-solutions"
+                index={2}
+                visible={visible}
+              />
+            </li>
           </ul>
+        </div>
+      </section>
+      <section className={cn('theme-light', s.partnership)}>
+        <div className="layout-grid">
+          <aside className={s.partnershipTitle}>
+            <p className="h3">
+              <AppearTitle>
+                <span>Why</span>
+                <br />
+                <span className="grey">Partner With Us</span>
+              </AppearTitle>
+            </p>
+          </aside>
+          <div className={s.partnershipGrid}>
+            <div className={s.partnershipItem}>
+              <h4 className="h4">Speed to Market</h4>
+              <p className="p">
+                From concept to shelf-ready product. Our integrated facility
+                and experienced team accelerate your timeline.
+              </p>
+            </div>
+            <div className={s.partnershipItem}>
+              <h4 className="h4">White-Label Ready</h4>
+              <p className="p">
+                Full private label and contract manufacturing services.
+                Your brand, our expertise.
+              </p>
+            </div>
+            <div className={s.partnershipItem}>
+              <h4 className="h4">Regulatory Navigation</h4>
+              <p className="p">
+                We handle the complexity of ESMA, GMP, and international
+                compliance so you can focus on growth.
+              </p>
+            </div>
+            <div className={s.partnershipItem}>
+              <h4 className="h4">Scalable Production</h4>
+              <p className="p">
+                From pilot batches to full-scale manufacturing.
+                Grow with confidence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={cn('theme-light', s.stats)}>
+        <div className="layout-grid">
+          <div className={s.statItem}>
+            <span className={cn('h1', s.statNumber)}>3</span>
+            <span className={cn('p-s', s.statLabel)}>Specialized Divisions</span>
+          </div>
+          <div className={s.statItem}>
+            <span className={cn('h1', s.statNumber)}>ISO 7&8</span>
+            <span className={cn('p-s', s.statLabel)}>Cleanroom Classes</span>
+          </div>
+          <div className={s.statItem}>
+            <span className={cn('h1', s.statNumber)}>5+</span>
+            <span className={cn('p-s', s.statLabel)}>Certifications</span>
+          </div>
+          <div className={s.statItem}>
+            <span className={cn('h1', s.statNumber)}>UAE</span>
+            <span className={cn('p-s', s.statLabel)}>Strategic Location</span>
+          </div>
         </div>
       </section>
     </Layout>

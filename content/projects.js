@@ -1,57 +1,17 @@
 export const projects = [
-  // {
-  //   title: 'Deso',
-  //   source: 'Studio Freight',
-  //   href: 'https://deso.com',
-  // },
-  // {
-  //   title: 'Sculpting Harmony',
-  //   source: 'Resn',
-  //   href: 'https://gehry.getty.edu/',
-  // },
-  // {
-  //   title: 'Superpower',
-  //   source: '',
-  //   href: 'https://superpower.com/',
-  // },
-  // {
-  //   title: 'Daylight Computer',
-  //   source: 'Basement Studio',
-  //   href: 'https://daylightcomputer.com/',
-  // },
-  // {
-  //   title: 'Lifeworld by Olafur Eliasson',
-  //   source: '',
-  //   href: 'https://lifeworld.wetransfer.com/',
-  // },
   {
-    title: 'Ibicash',
-    source: 'darkroom.engineering',
-    href: 'https://ibi.cash',
+    title: 'Electronic Nicotine Delivery Systems',
+    source: 'ENDS Manufacturing',
+    href: '#ends',
   },
   {
-    title: 'Grand Theft Auto VI',
-    source: 'Rockstar Games',
-    href: 'https://www.rockstargames.com/VI',
+    title: 'Functional Foods & Supplements',
+    source: 'Nutritional Products',
+    href: '#functional-foods',
   },
   {
-    title: 'Getty - Sculpting Harmony',
-    source: 'Resn',
-    href: 'https://gehry.getty.edu/',
-  },
-  {
-    title: 'Microsoft Design',
-    source: 'Microsoft',
-    href: 'https://microsoft.design/',
-  },
-  {
-    title: 'Shopify Supply',
-    source: 'Shopify',
-    href: 'https://shopify.supply/',
-  },
-  {
-    title: 'Metamask',
-    source: 'Antinomy',
-    href: 'https://metamask.io/',
+    title: 'Advanced Delivery Solutions',
+    source: 'Innovation Formats',
+    href: '#delivery-solutions',
   },
 ]

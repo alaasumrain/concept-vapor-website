@@ -1,85 +1,62 @@
 import cn from 'clsx'
 import { Button } from 'components/button'
 import { Link } from 'components/link'
-import dynamic from 'next/dynamic'
 import s from './footer.module.scss'
-
-const GitHub = dynamic(() => import('icons/github.svg'), { ssr: false })
 
 export const Footer = () => {
   return (
-    <footer className={cn('theme-light', s.footer)}>
+    <footer className={cn('theme-light', s.footer)} id="contact">
       <div className={cn(s.top, 'layout-grid hide-on-mobile')}>
         <p className={cn(s['first-line'], 'h1')}>
-          Lenis is <br />
-          <span className="contrast">Open source</span>
+          Let's build <br />
+          <span className="contrast">together</span>
         </p>
-        {/* <div className={s['shameless-plug']}>
-          <p className="h4">Studio Freight</p>
-          <p className="p-s">
-            An independent creative <br /> studio built on principle
-          </p>
-        </div> */}
         <p className={cn(s['last-line'], 'h1')}>
-          & open to <span className="hide-on-desktop">&nbsp;</span> features{' '}
-          <br /> and sponsors
+          Your vision, <span className="hide-on-desktop">&nbsp;</span> our{' '}
+          <br /> expertise
         </p>
         <Button
           className={s.cta}
           arrow
-          icon={<GitHub />}
-          href="https://github.com/sponsors/darkroomengineering"
+          href="mailto:info@conceptvapor.com"
         >
-          Let's build together
+          Get in touch
         </Button>
       </div>
       <div className={cn(s.top, 'layout-block hide-on-desktop')}>
-        {/* <div className={s['shameless-plug']}>
-          <p className="h4">Studio Freight</p>
-          <p className="p-s">
-            An independent creative <br /> studio built on principle
-          </p>
-        </div> */}
         <p className={cn(s['first-line'], 'h1')}>
-          Lenis is <br />
-          <span className="contrast">Open source</span>
-          <br /> & open to <br /> features and sponsors
+          Let's build <br />
+          <span className="contrast">together</span>
+          <br /> Your vision, <br /> our expertise
         </p>
       </div>
       <div className={s.bottom}>
         <div className={s.links}>
           <Link
             className={cn(s.link, 'p-xs')}
-            href="https://twitter.com/darkroomdevs"
+            href="mailto:info@conceptvapor.com"
           >
-            Twitter
+            info@conceptvapor.com
           </Link>
           <Link
             className={cn(s.link, 'p-xs')}
-            href="https://github.com/darkroomengineering"
+            href="https://www.linkedin.com/company/conceptvapor"
           >
-            GitHub
+            LinkedIn
           </Link>
-          <Link
-            className={cn(s.link, 'p-xs')}
-            href="https://darkroom.engineering/"
-          >
-            Website
-          </Link>
-          <Link className={cn(s.link, 'p-xs')} href="https://studiofreight.com">
-            Designed by Studio Freight
-          </Link>
+          <span className={cn(s.link, 'p-xs')}>
+            Jebel Ali Free Zone, Dubai, UAE
+          </span>
         </div>
         <p className={cn('p-xs', s.tm)}>
-          <span>©</span> {new Date().getFullYear()} darkroom.engineering
+          <span>©</span> {new Date().getFullYear()} Concept Vapor Solutions
         </p>
         <Button
           className={cn(s.cta, 'hide-on-desktop')}
           arrow
-          icon={<GitHub />}
-          href="https://github.com/sponsors/darkroomengineering"
+          href="mailto:info@conceptvapor.com"
         >
-          Let's build together
+          Get in touch
         </Button>
       </div>
     </footer>

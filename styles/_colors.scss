@@ -6,7 +6,8 @@ $colors: (
   'white': rgb(239, 239, 239),
   'grey': rgb(176, 176, 176),
   'black': rgb(0, 0, 0),
-  'pink': rgb(255, 152, 162),
+  'primary': rgb(0, 100, 150), // Professional blue - can be changed
+  'pink': rgb(0, 100, 150), // Keep for compatibility, using primary color
 );
 
 :root {
