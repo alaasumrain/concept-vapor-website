@@ -109,7 +109,7 @@ const LNS = ({ isLoaded, className, fill }) => {
   )
 }
 
-const EI = ({ isLoaded, className, fill }) => {
+const EI = ({ className, fill }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
