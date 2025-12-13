@@ -6,17 +6,9 @@ export default function Document() {
     <Html lang="en" className={process.env.NODE_ENV === 'development' && 'dev'}>
       <Head>
         <meta charSet="UTF-8" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-          rel="stylesheet"
-        />
+        {/* Preconnect to Fontshare for Panchang font */}
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="dns-prefetch" href="https://api.fontshare.com" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=panchang&display=swap"
           rel="stylesheet"

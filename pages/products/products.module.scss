@@ -1,0 +1,393 @@
+@import 'styles/_functions';
+
+.page {
+  overflow: hidden;
+  position: relative;
+
+  // Geometric pattern background (honeycomb/hexagonal)
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: #f5f3f0; // Light beige-grey
+    background-image:
+      radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+      radial-gradient(circle at 25% 25%, rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+    background-size: 60px 60px, 40px 40px, 40px 40px;
+    background-position: 0 0, 20px 20px, 40px 40px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+// ============================================
+// HERO SECTION
+// ============================================
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 0 60px;
+  background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f0f0f0 100%);
+  overflow: hidden;
+
+  @include desktop {
+    min-height: 80vh;
+    padding: 160px 0 100px;
+  }
+}
+
+.heroContent {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include desktop {
+    padding: 0 40px;
+    gap: 32px;
+  }
+}
+
+.heroHeader {
+  display: flex;
+  align-items: center;
+}
+
+.heroLabel {
+  font-family: var(--font-roboto);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--brand-gold);
+  
+  @include desktop {
+    font-size: 14px;
+  }
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-panchang);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--black);
+  
+  @include desktop {
+    font-size: 100px;
+  }
+  
+  .line {
+    display: block;
+  }
+}
+
+.heroDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--grey);
+  max-width: 100%;
+  margin-top: 16px;
+
+  @include desktop {
+    font-size: 20px;
+    max-width: 50%;
+    margin-top: 24px;
+  }
+}
+
+// ============================================
+// PRODUCTS GRID SECTION
+// ============================================
+.products {
+  position: relative;
+  z-index: 1;
+  padding: 60px 0 80px;
+  background: #faf9f7; // Light beige background for product section
+
+  @include desktop {
+    padding: 100px 0 120px;
+  }
+
+  :global(.layout-block) {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    @include desktop {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+}
+
+.productCard {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+.productImage {
+  width: 100%;
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8e6e3 0%, #d4d1cc 100%);
+
+  @include desktop {
+    height: 320px;
+  }
+}
+
+.productImageImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.productContent {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  @include desktop {
+    padding: 32px;
+  }
+}
+
+.productTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--black);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-panchang);
+  line-height: 1.3;
+
+  @include desktop {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+}
+
+.productDescription {
+  font-size: 15px;
+  color: var(--grey);
+  line-height: 1.6;
+  margin: 0 0 24px;
+  flex-grow: 1;
+
+  @include desktop {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+}
+
+.productButton {
+  align-self: flex-start;
+  margin-top: auto;
+  
+  :global(.button) {
+    padding: 12px 24px !important;
+    background: var(--brand-gold) !important;
+    color: var(--white) !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    transition: background 0.3s ease, transform 0.2s ease !important;
+    line-height: 1.4 !important;
+    
+    &::before,
+    &::after {
+      display: none !important;
+    }
+
+    @include desktop {
+      padding: 14px 28px !important;
+      font-size: 15px !important;
+
+      &:hover {
+        background: rgb(160, 140, 105) !important;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+.viewAllWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+  @include desktop {
+    margin-top: 60px;
+  }
+}
+
+.viewAllButton {
+  min-width: 240px;
+  
+  :global(.button) {
+    padding: 16px 48px !important;
+    background: var(--brand-gold) !important;
+    color: var(--white) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    transition: background 0.3s ease, transform 0.2s ease !important;
+    width: 100% !important;
+    line-height: 1.4 !important;
+    
+    &::before,
+    &::after {
+      display: none !important;
+    }
+
+    @include desktop {
+      padding: 18px 56px !important;
+      font-size: 16px !important;
+      min-width: 280px !important;
+
+      &:hover {
+        background: rgb(160, 140, 105) !important;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// ============================================
+// CLOSING SECTION
+// ============================================
+.closing {
+  position: relative;
+  z-index: 1;
+  padding: 60px 0 80px;
+  background: transparent;
+
+  @include desktop {
+    padding: 100px 0 120px;
+  }
+
+  :global(.layout-block) {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    @include desktop {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+}
+
+.closingGrid {
+  display: grid;
+  gap: 32px;
+
+  @include desktop {
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+  }
+}
+
+.closingLabel {
+  @include desktop {
+    border-left: 4px solid var(--brand-gold);
+    padding-left: 24px;
+  }
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--brand-gold);
+  margin-bottom: 0;
+}
+
+.closingContent {
+  max-width: 100%;
+}
+
+.closingTitle {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-family: var(--font-panchang);
+  text-transform: uppercase;
+
+  @include desktop {
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+}
+
+.closingText {
+  font-size: 16px;
+  color: var(--grey);
+  line-height: 1.7;
+  margin: 0;
+
+  @include desktop {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+}
+

@@ -2,16 +2,31 @@ export const projects = [
   {
     title: 'Electronic Nicotine Delivery Systems',
     source: 'ENDS Manufacturing',
-    href: '#ends',
+    href: '/products/endd',
   },
   {
     title: 'Functional Foods & Supplements',
     source: 'Nutritional Products',
-    href: '#functional-foods',
+    href: '/products/functional-foods',
   },
   {
     title: 'Advanced Delivery Solutions',
     source: 'Innovation Formats',
-    href: '#delivery-solutions',
+    href: '/products/pharmaceutical',
+  },
+  {
+    title: 'ISO Class 7 & 8 Cleanrooms',
+    source: 'Facility Excellence',
+    href: '/facility',
+  },
+  {
+    title: 'GMP-Compliant Processing',
+    source: 'Quality Assurance',
+    href: '/facility',
+  },
+  {
+    title: 'Regulatory Compliance',
+    source: 'ESMA & UAE Standards',
+    href: '/about',
   },
 ]

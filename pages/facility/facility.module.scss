@@ -1,0 +1,749 @@
+@import 'styles/_functions';
+
+// ═══════════════════════════════════════════════════════════
+// PAGE CONTAINER - Fixed max-width for readable content
+// ═══════════════════════════════════════════════════════════
+
+.page {
+  padding-top: 0;
+}
+
+// Override layout-block for facility page - cap the width
+.page :global(.layout-block) {
+  max-width: 1140px;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  @include desktop {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// HERO
+// ═══════════════════════════════════════════════════════════
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  overflow: hidden;
+
+  @include desktop {
+    height: 70vh;
+    min-height: 600px;
+  }
+}
+
+.heroImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  
+  :global(img) {
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at center, transparent 20%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.heroContent {
+  max-width: 900px;
+  color: var(--white);
+}
+
+.heroLabel {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--brand-gold);
+  margin-bottom: 16px;
+
+  @include desktop {
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+}
+
+.heroTitle {
+  line-height: 1.1;
+  font-size: 32px;
+  color: var(--white);
+  font-weight: 700;
+
+  @include desktop {
+    font-size: 64px;
+  }
+}
+
+// Hero section uses full width
+.hero :global(.layout-block) {
+  max-width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  @include desktop {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// INTRO
+// ═══════════════════════════════════════════════════════════
+
+.intro {
+  padding: 60px 0;
+
+  @include desktop {
+    padding: 100px 0;
+  }
+}
+
+.introContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.introText {
+  max-width: 800px;
+  line-height: 1.7;
+  margin: 0 0 24px;
+  font-size: 18px;
+  font-weight: 400;
+
+  @include desktop {
+    font-size: 22px;
+    margin-bottom: 32px;
+    line-height: 1.75;
+    max-width: 900px;
+  }
+}
+
+.introSubtext {
+  max-width: 700px;
+  margin: 0;
+  color: var(--grey);
+  line-height: 1.75;
+  font-size: 15px;
+
+  @include desktop {
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 800px;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// SHARED SECTION STYLES
+// ═══════════════════════════════════════════════════════════
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--brand-gold);
+  margin-bottom: 12px;
+
+  @include desktop {
+    margin-bottom: 16px;
+  }
+}
+
+.sectionTitle {
+  margin-bottom: 16px;
+  font-size: 28px;
+
+  @include desktop {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+}
+
+.sectionDescription {
+  color: var(--grey);
+  line-height: 1.7;
+  max-width: 600px;
+  font-size: 15px;
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// CLEANROOMS
+// ═══════════════════════════════════════════════════════════
+
+.cleanrooms {
+  padding: 60px 0;
+  background: rgba(0, 0, 0, 0.02);
+
+  @include desktop {
+    padding: 100px 0;
+  }
+}
+
+.cleanroomsGrid {
+  display: grid;
+  gap: 40px;
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+}
+
+.cleanroomsContent {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    max-width: 520px;
+  }
+}
+
+.sectionHeader {
+  margin-bottom: 40px;
+  max-width: 100%;
+
+  @include desktop {
+    margin-bottom: 48px;
+  }
+}
+
+.cleanroomsImage {
+  order: -1;
+  
+  @include desktop {
+    order: 0;
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    height: fit-content;
+  }
+}
+
+.cleanroomImageWrapper {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.05);
+  position: relative;
+  aspect-ratio: 3 / 4;
+
+  @include desktop {
+    aspect-ratio: auto;
+    height: 500px;
+  }
+}
+
+.cleanroomImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 8px;
+}
+
+.featuresGrid {
+  display: grid;
+  gap: 16px;
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+.featureCard {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  padding: 28px;
+  transition: all 0.3s ease;
+
+  @include desktop {
+    padding: 32px;
+    
+    &:hover {
+      border-color: rgba(176, 156, 121, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.featureIcon {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brand-gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+
+  @include desktop {
+    margin-bottom: 20px;
+  }
+}
+
+.featureTitle {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+
+  @include desktop {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+}
+
+.featureDescription {
+  color: var(--grey);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 14px;
+
+  @include desktop {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// AUTOMATION
+// ═══════════════════════════════════════════════════════════
+
+.automation {
+  padding: 60px 0;
+
+  @include desktop {
+    padding: 100px 0;
+  }
+}
+
+.automationGrid {
+  display: grid;
+  gap: 40px;
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: flex-start;
+  }
+}
+
+.automationImage {
+  @include desktop {
+    position: sticky;
+    top: 100px;
+  }
+}
+
+.automationImageWrapper {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.05);
+  position: relative;
+  min-height: 400px;
+  aspect-ratio: 1 / 1;
+  
+  @include desktop {
+    min-height: 500px;
+  }
+}
+
+.automationImageImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 8px;
+}
+
+.automationContent {
+  max-width: 100%;
+
+  @include desktop {
+    max-width: 520px;
+    padding-right: 0;
+  }
+}
+
+.automationFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 32px;
+
+  @include desktop {
+    margin-top: 40px;
+  }
+}
+
+.automationFeature {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  @include desktop {
+    padding: 28px 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.automationFeatureTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+
+  @include desktop {
+    margin-bottom: 10px;
+  }
+}
+
+.automationFeatureDescription {
+  font-size: 14px;
+  color: var(--grey);
+  margin: 0;
+  line-height: 1.7;
+
+  @include desktop {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// R&D
+// ═══════════════════════════════════════════════════════════
+
+.rd {
+  padding: 60px 0;
+  background: rgba(0, 0, 0, 0.02);
+
+  @include desktop {
+    padding: 100px 0;
+  }
+}
+
+.rdGrid {
+  display: grid;
+  gap: 40px;
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: flex-start;
+  }
+}
+
+.rdContent {
+  max-width: 100%;
+
+  @include desktop {
+    max-width: 520px;
+    padding-right: 0;
+  }
+}
+
+.rdVisual {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include desktop {
+    gap: 40px;
+  }
+}
+
+.rdImageWrapper {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.05);
+  position: relative;
+  min-height: 400px;
+  aspect-ratio: 1 / 1;
+  
+  @include desktop {
+    min-height: 500px;
+  }
+}
+
+.rdImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 8px;
+}
+
+.rdCapabilities {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  padding: 32px;
+
+  @include desktop {
+    padding: 40px;
+  }
+}
+
+.capabilitiesTitle {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brand-gold);
+  margin-bottom: 24px;
+
+  @include desktop {
+    margin-bottom: 28px;
+  }
+}
+
+.capabilitiesGrid {
+  display: grid;
+  gap: 16px;
+
+  @include desktop {
+    gap: 18px;
+  }
+}
+
+.capability {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--grey);
+
+  @include desktop {
+    gap: 14px;
+  }
+}
+
+.capabilityIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--brand-gold);
+}
+
+// ═══════════════════════════════════════════════════════════
+// LOGISTICS
+// ═══════════════════════════════════════════════════════════
+
+.logistics {
+  padding: 60px 0;
+
+  @include desktop {
+    padding: 100px 0;
+  }
+}
+
+.logisticsContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.logisticsInner {
+  background: rgba(176, 156, 121, 0.08);
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+
+  @include desktop {
+    padding: 64px;
+  }
+}
+
+.logisticsTitle {
+  margin-bottom: 20px;
+  font-size: 28px;
+
+  @include desktop {
+    font-size: 40px;
+    margin-bottom: 24px;
+  }
+}
+
+.logisticsText {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  font-size: 17px;
+  color: var(--grey);
+
+  @include desktop {
+    margin-bottom: 48px;
+    font-size: 19px;
+    line-height: 1.7;
+  }
+}
+
+.logisticsStats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+
+  @include desktop {
+    gap: 64px;
+  }
+}
+
+.logisticsStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 80px;
+
+  @include desktop {
+    gap: 10px;
+    min-width: auto;
+  }
+}
+
+.statValue {
+  font-size: 32px;
+  font-weight: 600;
+  font-family: var(--font-panchang);
+  color: var(--brand-gold);
+  line-height: 1;
+
+  @include desktop {
+    font-size: 56px;
+  }
+}
+
+.statLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--grey);
+  text-align: center;
+
+  @include desktop {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// PHILOSOPHY
+// ═══════════════════════════════════════════════════════════
+
+.philosophy {
+  padding: 60px 0;
+  background: rgba(0, 0, 0, 0.02);
+
+  @include desktop {
+    padding: 100px 0;
+  }
+}
+
+.philosophyContent {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.philosophyTitle {
+  margin-bottom: 32px;
+  font-size: 28px;
+
+  @include desktop {
+    font-size: 40px;
+    margin-bottom: 48px;
+  }
+}
+
+.philosophyPrinciples {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+
+  @include desktop {
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+}
+
+.principle {
+  // wrapper
+}
+
+.principleText {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--font-panchang);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand-gold);
+
+  @include desktop {
+    font-size: 32px;
+  }
+}
+
+.principleDivider {
+  display: none;
+
+  @include desktop {
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.15);
+  }
+}
+
+.philosophyText {
+  color: var(--grey);
+  line-height: 1.75;
+  margin: 0;
+  font-size: 15px;
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+}

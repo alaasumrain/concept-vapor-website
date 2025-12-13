@@ -1,7 +1,9 @@
 import { useFrame } from '@darkroom.engineering/hamo'
 import cn from 'clsx'
+import { Breadcrumb } from 'components/breadcrumb'
 import { CustomHead } from 'components/custom-head'
 import { Footer } from 'components/footer'
+import { Header } from 'components/header'
 import { Intro } from 'components/intro'
 import { Scrollbar } from 'components/scrollbar'
 import Lenis from 'lenis'
@@ -29,6 +31,9 @@ export function Layout({
 }) {
   const [lenis, setLenis] = useStore((state) => [state.lenis, state.setLenis])
   const router = useRouter()
+
+  // Only show intro on homepage
+  const isHomepage = router.pathname === '/' || router.pathname === '/home'
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -103,7 +108,9 @@ export function Layout({
       <CustomHead {...seo} />
       <div className={cn(`theme-${theme}`, s.layout, className)}>
         <PageTransition />
-        <Intro />
+        <Header />
+        {isHomepage && <Intro />}
+        <Breadcrumb />
         <Cursor />
         <Scrollbar />
         <main className={s.main}>{children}</main>

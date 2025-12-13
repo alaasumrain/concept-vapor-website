@@ -5,9 +5,29 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { useScroll } from 'hooks/use-scroll'
 import { GTM_ID } from 'lib/analytics'
 import { useStore } from 'lib/store'
+import { Anton, Roboto } from 'next/font/google'
 import Script from 'next/script'
 import { useEffect } from 'react'
 import 'styles/global.scss'
+
+// Optimize Google Fonts loading - fonts will be self-hosted and optimized by Next.js
+// This prevents font flash by preloading and self-hosting fonts
+const anton = Anton({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-anton',
+  preload: true,
+})
+
+const roboto = Roboto({
+  weight: ['100', '300', '400', '500', '700', '900'],
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-roboto',
+  preload: true,
+})
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -40,7 +60,7 @@ function MyApp({ Component, pageProps }) {
   ScrollTrigger.defaults({ markers: false }) // Disabled debug markers
 
   return (
-    <>
+    <div className={`${anton.variable} ${roboto.variable}`}>
 
       {/* Google Tag Manager - Global base code */}
       {process.env.NODE_ENV !== 'development' && (
@@ -65,7 +85,7 @@ function MyApp({ Component, pageProps }) {
 
       <RealViewport />
       <Component {...pageProps} />
-    </>
+    </div>
   )
 }
 

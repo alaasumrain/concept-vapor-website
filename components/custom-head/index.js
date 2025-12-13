@@ -55,9 +55,9 @@ export function CustomHead({ title = '', description, image, keywords }) {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#006496" />
-        <meta name="msapplication-TileColor" content="#006496" />
-        <meta name="theme-color" content="#006496" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#B09C79" />
+        <meta name="msapplication-TileColor" content="#B09C79" />
+        <meta name="theme-color" content="#B09C79" />
         <link rel="icon" href="/favicon.ico" />
         {/* END FAVICON */}
       </NextHead>

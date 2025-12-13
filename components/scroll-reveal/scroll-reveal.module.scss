@@ -1,0 +1,81 @@
+// ═══════════════════════════════════════════════════════════
+// SCROLL REVEAL ANIMATIONS
+// Precision-engineered reveal animations
+// ═══════════════════════════════════════════════════════════
+
+.reveal {
+  --delay: 0ms;
+  --duration: 800ms;
+
+  // Default: fade-up
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity var(--duration) cubic-bezier(0.16, 1, 0.3, 1) var(--delay),
+    transform var(--duration) cubic-bezier(0.16, 1, 0.3, 1) var(--delay);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// ANIMATION VARIANTS
+// ═══════════════════════════════════════════════════════════
+
+.fade-up {
+  transform: translateY(30px);
+
+  &.visible {
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  transform: none;
+
+  &.visible {
+    transform: none;
+  }
+}
+
+.fade-left {
+  transform: translateX(40px);
+
+  &.visible {
+    transform: translateX(0);
+  }
+}
+
+.fade-right {
+  transform: translateX(-40px);
+
+  &.visible {
+    transform: translateX(0);
+  }
+}
+
+.scale {
+  transform: scale(0.95);
+
+  &.visible {
+    transform: scale(1);
+  }
+}
+
+.fade-up-stagger {
+  transform: translateY(20px);
+
+  &.visible {
+    transform: translateY(0);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// GROUP CONTAINER
+// ═══════════════════════════════════════════════════════════
+
+.group {
+  // Container for staggered animations
+}
