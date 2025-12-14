@@ -1,4 +1,4 @@
-import { useFrame, useRect } from '@darkroom.engineering/hamo'
+import { useRect } from '@darkroom.engineering/hamo'
 import cn from 'clsx'
 
 import { Button } from 'components/button'

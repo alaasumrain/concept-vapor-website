@@ -1,5 +1,4 @@
 import Tempus from '@darkroom.engineering/tempus'
-import { useDebug } from '@darkroom.engineering/hamo'
 import { RealViewport } from 'components/real-viewport'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'

@@ -9,7 +9,6 @@ export const Intro = () => {
   const isMobile = useMediaQuery('(max-width: 800px)')
   const [isLoaded, setIsLoaded] = useState(false)
   const [scroll, setScroll] = useState(false)
-  const introOut = useStore(({ introOut }) => introOut)
   const setIntroOut = useStore(({ setIntroOut }) => setIntroOut)
   const lenis = useStore(({ lenis }) => lenis)
 
@@ -65,8 +64,6 @@ export const Intro = () => {
 }
 
 export const Title = ({ className }) => {
-  const introOut = useStore(({ introOut }) => introOut)
-
   return (
     <div className={className}>
       <LNS fill={'var(--pink)'} />
@@ -74,7 +71,7 @@ export const Title = ({ className }) => {
   )
 }
 
-const LNS = ({ isLoaded, className, fill }) => {
+const LNS = ({ isLoaded, className }) => {
   return (
     <div className={cn(s.lns, className)}>
       <div
@@ -92,8 +89,6 @@ const LNS = ({ isLoaded, className, fill }) => {
     </div>
   )
 }
-
-const EI = ({ isLoaded, className, fill }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

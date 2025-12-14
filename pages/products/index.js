@@ -1,15 +1,9 @@
 import cn from 'clsx'
 import { Image } from 'components/image'
 import { Button } from 'components/button'
-import { Card } from 'components/card'
 import { Layout } from 'layouts/default'
 import dynamic from 'next/dynamic'
 import s from './products.module.scss'
-
-const AppearTitle = dynamic(
-  () => import('components/appear-title').then((mod) => mod.AppearTitle),
-  { ssr: false }
-)
 
 const ScrollReveal = dynamic(
   () => import('components/scroll-reveal').then((mod) => mod.ScrollReveal),
@@ -18,12 +12,6 @@ const ScrollReveal = dynamic(
 
 const Parallax = dynamic(
   () => import('components/parallax').then((mod) => mod.Parallax),
-  { ssr: false }
-)
-
-const HorizontalSlides = dynamic(
-  () =>
-    import('components/horizontal-slides').then((mod) => mod.HorizontalSlides),
   { ssr: false }
 )
 
