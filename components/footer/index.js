@@ -73,6 +73,12 @@ export const Footer = () => {
         <p className={cn('p-xs', s.tm)}>
           <span>©</span> {new Date().getFullYear()} Concept Vapor Solutions
         </p>
+        <p className={cn('p-xs', s.developer)}>
+          Developed by{' '}
+          <Link href="https://sumrain.tech" className={s.developerLink}>
+            Sumrain Technologies
+          </Link>
+        </p>
         <Button
           className={cn(s.cta, 'hide-on-desktop')}
           arrow

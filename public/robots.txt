@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://lenis.darkroom.engineering/
+Host: https://concept-vapor-website.vercel.app/
 
 # Sitemaps
-Sitemap: https://lenis.darkroom.engineering/sitemap.xml
+Sitemap: https://concept-vapor-website.vercel.app/sitemap.xml

@@ -33,10 +33,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.ctfassets.net',
       },
-      {
-        protocol: 'https',
-        hostname: 'assets.darkroom.engineering',
-      },
     ],
     formats: ['image/avif', 'image/webp'],
   },

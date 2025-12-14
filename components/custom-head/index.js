@@ -30,7 +30,7 @@ export function CustomHead({ title = '', description, image, keywords }) {
           name="keywords"
           content={keywords && keywords.length ? keywords.join(',') : keywords}
         />
-        <meta name="author" content="darkroom.engineering" />
+        <meta name="author" content="Concept Vapor Solutions" />
         <meta name="referrer" content="no-referrer" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="geo.region" content="US" />
@@ -55,7 +55,7 @@ export function CustomHead({ title = '', description, image, keywords }) {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff98a2" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#B09C79" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href="/favicon.ico" />
@@ -81,10 +81,9 @@ export function CustomHead({ title = '', description, image, keywords }) {
           ],
           defaultImageWidth: 1200,
           defaultImageHeight: 630,
-          site_name: '',
+          site_name: 'Concept Vapor Solutions',
         }}
         twitter={{
-          handle: '@darkroomdevs',
           cardType: 'summary_large_image',
         }}
       />

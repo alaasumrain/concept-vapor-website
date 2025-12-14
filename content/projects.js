@@ -26,7 +26,7 @@ export const projects = [
   // },
   {
     title: 'Ibicash',
-    source: 'darkroom.engineering',
+    source: 'Concept Vapor Solutions',
     href: 'https://ibi.cash',
   },
   {

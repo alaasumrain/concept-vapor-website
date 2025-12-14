@@ -117,6 +117,34 @@
       }
     }
 
+    .developer {
+      color: var(--grey);
+      font-size: mobile-vw(10px);
+      margin-top: mobile-vw(8px);
+      opacity: 0.6;
+
+      @include desktop {
+        font-size: desktop-vw(10px);
+        margin-top: desktop-vw(8px);
+      }
+
+      @include mobile {
+        text-align: end;
+        align-self: end;
+        grid-column: 1 / -1;
+      }
+    }
+
+    .developerLink {
+      color: var(--brand-gold);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
     .cta {
       // this CTA is only rendered on mobile
       grid-column: 1 / -1;
