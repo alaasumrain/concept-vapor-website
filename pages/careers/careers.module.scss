@@ -1,0 +1,346 @@
+@import 'styles/_functions';
+
+.page {
+  overflow: hidden;
+}
+
+// ============================================
+// HERO SECTION
+// ============================================
+.hero {
+  padding: mobile-vw(120px) 0 mobile-vw(80px);
+  background: linear-gradient(180deg, rgba(var(--brand-gold-rgb), 0.03) 0%, transparent 100%);
+
+  @include desktop {
+    padding: desktop-vw(160px) 0 desktop-vw(100px);
+  }
+}
+
+.heroContent {
+  text-align: center;
+  max-width: mobile-vw(600px);
+  margin: 0 auto;
+
+  @include desktop {
+    max-width: desktop-vw(800px);
+  }
+}
+
+.heroLabel {
+  display: inline-block;
+  font-size: mobile-vw(11px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--brand-gold);
+  margin-bottom: mobile-vw(24px);
+  padding: mobile-vw(8px) mobile-vw(16px);
+  border: 1px solid rgba(var(--brand-gold-rgb), 0.3);
+  border-radius: mobile-vw(4px);
+
+  @include desktop {
+    font-size: desktop-vw(11px);
+    margin-bottom: desktop-vw(32px);
+    padding: desktop-vw(10px) desktop-vw(20px);
+    border-radius: desktop-vw(4px);
+  }
+}
+
+.heroTitle {
+  margin-bottom: mobile-vw(20px);
+
+  @include desktop {
+    margin-bottom: desktop-vw(24px);
+  }
+}
+
+.heroTagline {
+  color: var(--grey);
+  font-style: italic;
+}
+
+// ============================================
+// INTRO SECTION
+// ============================================
+.intro {
+  padding: mobile-vw(60px) 0 mobile-vw(80px);
+
+  @include desktop {
+    padding: desktop-vw(80px) 0 desktop-vw(120px);
+  }
+}
+
+.introText {
+  max-width: mobile-vw(800px);
+  margin: 0 auto mobile-vw(24px);
+  text-align: center;
+  line-height: 1.6;
+
+  @include desktop {
+    max-width: desktop-vw(900px);
+    margin-bottom: desktop-vw(32px);
+  }
+}
+
+.introSubtext {
+  max-width: mobile-vw(700px);
+  margin: 0 auto;
+  text-align: center;
+  color: var(--grey);
+  line-height: 1.7;
+
+  @include desktop {
+    max-width: desktop-vw(800px);
+  }
+}
+
+// ============================================
+// SECTION HEADERS (reusable)
+// ============================================
+.sectionHeader {
+  margin-bottom: mobile-vw(48px);
+
+  @include desktop {
+    margin-bottom: desktop-vw(64px);
+  }
+}
+
+.sectionLabel {
+  font-size: mobile-vw(11px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--brand-gold);
+  margin-bottom: mobile-vw(16px);
+
+  @include desktop {
+    font-size: desktop-vw(11px);
+    margin-bottom: desktop-vw(20px);
+  }
+}
+
+.sectionTitle {
+  max-width: mobile-vw(500px);
+
+  @include desktop {
+    max-width: desktop-vw(600px);
+  }
+}
+
+// ============================================
+// BENEFITS SECTION
+// ============================================
+.benefits {
+  padding: mobile-vw(80px) 0;
+  background-color: rgba(0, 0, 0, 0.02);
+
+  @include desktop {
+    padding: desktop-vw(120px) 0;
+  }
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: mobile-vw(24px);
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+    gap: desktop-vw(32px);
+  }
+}
+
+.benefitCard {
+  background: var(--white);
+  border-radius: mobile-vw(12px);
+  padding: mobile-vw(32px);
+  box-shadow: 0 mobile-vw(4px) mobile-vw(24px) rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+
+  @include desktop {
+    border-radius: desktop-vw(16px);
+    padding: desktop-vw(40px);
+    box-shadow: 0 desktop-vw(4px) desktop-vw(32px) rgba(0, 0, 0, 0.04);
+
+    &:hover {
+      transform: translateY(desktop-vw(-8px));
+      box-shadow: 0 desktop-vw(12px) desktop-vw(48px) rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
+.benefitNumber {
+  font-family: var(--font-panchang);
+  font-size: mobile-vw(32px);
+  font-weight: 700;
+  color: var(--brand-gold);
+  margin-bottom: mobile-vw(16px);
+  opacity: 0.6;
+
+  @include desktop {
+    font-size: desktop-vw(36px);
+    margin-bottom: desktop-vw(20px);
+  }
+}
+
+.benefitTitle {
+  font-size: mobile-vw(20px);
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: mobile-vw(12px);
+  font-family: var(--font-panchang);
+
+  @include desktop {
+    font-size: desktop-vw(22px);
+    margin-bottom: desktop-vw(16px);
+  }
+}
+
+.benefitDescription {
+  font-size: mobile-vw(14px);
+  line-height: 1.7;
+  color: var(--grey);
+
+  @include desktop {
+    font-size: desktop-vw(14px);
+  }
+}
+
+// ============================================
+// ROLES SECTION
+// ============================================
+.roles {
+  padding: mobile-vw(80px) 0;
+
+  @include desktop {
+    padding: desktop-vw(120px) 0;
+  }
+}
+
+.rolesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: mobile-vw(48px);
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr;
+    gap: desktop-vw(80px);
+    align-items: center;
+  }
+}
+
+.rolesContent {
+  @include desktop {
+    padding-right: desktop-vw(40px);
+  }
+}
+
+.rolesDescription {
+  color: var(--grey);
+  line-height: 1.7;
+  margin-top: mobile-vw(24px);
+
+  @include desktop {
+    margin-top: desktop-vw(32px);
+  }
+}
+
+.rolesList {
+  display: flex;
+  flex-direction: column;
+  gap: mobile-vw(20px);
+
+  @include desktop {
+    gap: desktop-vw(24px);
+  }
+}
+
+.roleItem {
+  display: flex;
+  align-items: center;
+  gap: mobile-vw(16px);
+  font-size: mobile-vw(15px);
+  color: var(--black);
+  font-weight: 500;
+
+  @include desktop {
+    gap: desktop-vw(20px);
+    font-size: desktop-vw(16px);
+  }
+}
+
+.roleIcon {
+  flex-shrink: 0;
+  width: mobile-vw(24px);
+  height: mobile-vw(24px);
+  color: var(--brand-gold);
+
+  @include desktop {
+    width: desktop-vw(28px);
+    height: desktop-vw(28px);
+  }
+}
+
+// ============================================
+// CONTACT SECTION
+// ============================================
+.contact {
+  padding: mobile-vw(80px) 0;
+  background: linear-gradient(180deg, rgba(var(--brand-gold-rgb), 0.03) 0%, rgba(var(--brand-gold-rgb), 0.06) 100%);
+
+  @include desktop {
+    padding: desktop-vw(120px) 0;
+  }
+}
+
+.contactContent {
+  text-align: center;
+  max-width: mobile-vw(600px);
+  margin: 0 auto;
+
+  @include desktop {
+    max-width: desktop-vw(700px);
+  }
+}
+
+.contactTitle {
+  margin-bottom: mobile-vw(24px);
+
+  @include desktop {
+    margin-bottom: desktop-vw(32px);
+  }
+}
+
+.contactText {
+  color: var(--grey);
+  line-height: 1.7;
+  margin-bottom: mobile-vw(16px);
+
+  @include desktop {
+    margin-bottom: desktop-vw(20px);
+  }
+}
+
+.emailLink {
+  display: inline-block;
+  font-family: var(--font-panchang);
+  font-size: mobile-vw(20px);
+  font-weight: 600;
+  color: var(--brand-gold);
+  text-decoration: none;
+  padding: mobile-vw(12px) mobile-vw(24px);
+  border: 2px solid var(--brand-gold);
+  border-radius: mobile-vw(8px);
+  transition: background 0.3s ease, color 0.3s ease;
+
+  @include desktop {
+    font-size: desktop-vw(22px);
+    padding: desktop-vw(14px) desktop-vw(32px);
+    border-radius: desktop-vw(8px);
+  }
+
+  &:hover {
+    background: var(--brand-gold);
+    color: var(--white);
+  }
+}

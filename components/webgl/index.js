@@ -237,7 +237,7 @@ const steps = [
 // const thresholds = [0, 1000, 2000, 3000, 4000, 5000]
 
 const material = new MeshPhysicalMaterial({
-  color: new Color('#FF98A2'),
+  color: new Color('#B09C79'),
   metalness: 1,
   roughness: 0.4,
   wireframe: true,
@@ -308,7 +308,7 @@ export function Arm() {
         value: 1,
         max: 1,
       },
-      lightsColor: '#FF98A2',
+      lightsColor: '#B09C79',
       ambientColor: '#0E0E0E',
     }),
     []
@@ -382,8 +382,8 @@ export function Arm() {
       setLights({
         light1Intensity: 0.35,
         light2Intensity: 0.15,
-        lightsColor: '#FF98A2',
-        ambientColor: '#FF98A2',
+        lightsColor: '#B09C79',
+        ambientColor: '#B09C79',
       })
       setMaterial({
         color: '#b0b0b0',
@@ -428,6 +428,22 @@ export function Arm() {
     }
 
     const current = thresholds.findIndex((v) => scroll < v) - 1
+
+    // Handle case when current is -1 (before first threshold)
+    if (current < 0) {
+      const initialStep = steps[0]
+      if (initialStep && parent.current) {
+        parent.current.scale.setScalar(viewport.height * initialStep.scale)
+        parent.current.position.set(
+          viewport.width * initialStep.position[0],
+          viewport.height * initialStep.position[1],
+          0
+        )
+        parent.current.rotation.fromArray(initialStep.rotation)
+        setType(initialStep.type)
+      }
+      return
+    }
 
     const start = thresholds[current]
     const end = thresholds[current + 1]

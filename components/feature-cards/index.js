@@ -16,25 +16,25 @@ const AppearTitle = dynamic(
 import s from './feature-cards.module.scss'
 
 const cards = [
-  { text: 'Run scroll in the main thread' },
+  { text: 'ISO Class 7 & 8 Cleanrooms' },
 
   {
     text: (
       <>
-        Lightweight <br /> (under 4kb)
+        GMP-Compliant <br /> Manufacturing
       </>
     ),
   },
-  { text: `Made for ${new Date().getFullYear()}+` },
-  { text: 'Bring your own animation library' },
+  { text: `ESMA & UAE Regulatory Compliance` },
+  { text: 'Multi-Format Production Capabilities' },
   {
-    text: <>CONTROL THE SCROLL EASING DURATION</>,
+    text: <>SCIENTIFIC RIGOR & QUALITY ASSURANCE</>,
   },
-  { text: 'Use any element as scroller' },
-  { text: 'Enjoy horizontal + vertical support' },
-  { text: 'Feel free to use “position: sticky” again' },
+  { text: 'Integrated R&D & Development' },
+  { text: 'End-to-End Supply Chain Solutions' },
+  { text: 'Strategic Dubai Location' },
   {
-    text: 'touch support',
+    text: 'Custom Formulation Services',
   },
 ]
 
@@ -73,9 +73,9 @@ export const FeatureCards = () => {
         <aside className={s.title}>
           <p className="h3">
             <AppearTitle>
-              Lenis brings
+              Our solutions
               <br />
-              <span className="grey">the heat</span>
+              <span className="grey">deliver excellence</span>
             </AppearTitle>
           </p>
         </aside>

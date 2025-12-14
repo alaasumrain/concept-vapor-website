@@ -2,6 +2,7 @@ import { useFrame } from '@darkroom.engineering/hamo'
 import cn from 'clsx'
 import { CustomHead } from 'components/custom-head'
 import { Footer } from 'components/footer'
+import { Header } from 'components/header'
 import { Intro } from 'components/intro'
 import { Scrollbar } from 'components/scrollbar'
 import Lenis from 'lenis'
@@ -98,12 +99,15 @@ export function Layout({
     lenis?.raf(time)
   }, 0)
 
+  const isHomepage = router.pathname === '/' || router.pathname === '/home'
+
   return (
     <>
       <CustomHead {...seo} />
       <div className={cn(`theme-${theme}`, s.layout, className)}>
         <PageTransition />
-        <Intro />
+        <Header />
+        {isHomepage && <Intro />}
         <Cursor />
         <Scrollbar />
         <main className={s.main}>{children}</main>

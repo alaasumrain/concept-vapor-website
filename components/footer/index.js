@@ -11,8 +11,8 @@ export const Footer = () => {
     <footer className={cn('theme-light', s.footer)}>
       <div className={cn(s.top, 'layout-grid hide-on-mobile')}>
         <p className={cn(s['first-line'], 'h1')}>
-          Lenis is <br />
-          <span className="contrast">Open source</span>
+          Concept Vapor Solutions <br />
+          <span className="contrast">Manufacturing Excellence</span>
         </p>
         {/* <div className={s['shameless-plug']}>
           <p className="h4">Studio Freight</p>
@@ -28,9 +28,9 @@ export const Footer = () => {
           className={s.cta}
           arrow
           icon={<GitHub />}
-          href="https://github.com/sponsors/darkroomengineering"
+          href="/contact"
         >
-          Let's build together
+          Get in touch
         </Button>
       </div>
       <div className={cn(s.top, 'layout-block hide-on-desktop')}>
@@ -41,45 +41,45 @@ export const Footer = () => {
           </p>
         </div> */}
         <p className={cn(s['first-line'], 'h1')}>
-          Lenis is <br />
-          <span className="contrast">Open source</span>
-          <br /> & open to <br /> features and sponsors
+          Concept Vapor Solutions <br />
+          <span className="contrast">Manufacturing Excellence</span>
+          <br /> & open to <br /> partnerships and collaborations
         </p>
       </div>
       <div className={s.bottom}>
         <div className={s.links}>
           <Link
             className={cn(s.link, 'p-xs')}
-            href="https://twitter.com/darkroomdevs"
+            href="/contact"
           >
-            Twitter
+            Contact
           </Link>
           <Link
             className={cn(s.link, 'p-xs')}
-            href="https://github.com/darkroomengineering"
+            href="/about"
           >
-            GitHub
+            About
           </Link>
           <Link
             className={cn(s.link, 'p-xs')}
-            href="https://darkroom.engineering/"
+            href="/products"
           >
-            Website
+            Products
           </Link>
-          <Link className={cn(s.link, 'p-xs')} href="https://studiofreight.com">
-            Designed by Studio Freight
+          <Link className={cn(s.link, 'p-xs')} href="/facility">
+            Facility
           </Link>
         </div>
         <p className={cn('p-xs', s.tm)}>
-          <span>©</span> {new Date().getFullYear()} darkroom.engineering
+          <span>©</span> {new Date().getFullYear()} Concept Vapor Solutions
         </p>
         <Button
           className={cn(s.cta, 'hide-on-desktop')}
           arrow
           icon={<GitHub />}
-          href="https://github.com/sponsors/darkroomengineering"
+          href="/contact"
         >
-          Let's build together
+          Get in touch
         </Button>
       </div>
     </footer>

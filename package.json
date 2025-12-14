@@ -1,7 +1,7 @@
 {
   "name": "website",
   "version": "1.0.0",
-  "description": "Lenis is a smooth scroll library to normalize the scrolling experience across devices",
+  "description": "Concept Vapor Solutions - Next-generation manufacturing facility in Dubai",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -64,7 +64,7 @@
       "react-is": "18.2.0",
       "scheduler": "0.23.0",
       "throttle-debounce": "5.0.0",
-      "zustand": "4.3.6"
+      "zustand": "5.0.9"
     }
   }
 }

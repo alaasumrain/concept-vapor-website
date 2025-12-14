@@ -1,7 +1,7 @@
 @import 'styles/_functions';
 
-$intro-in: 1500ms;
-$intro-out: 1500ms;
+$intro-in: 800ms;
+$intro-out: 600ms;
 
 .wrapper {
   height: 100vh;
@@ -42,7 +42,7 @@ $intro-out: 1500ms;
 
   .show {
     transition: transform $intro-in var(--ease-out-expo);
-    transition-delay: calc(var(--index) * 75ms);
+    transition-delay: calc(var(--index) * 50ms);
     transform: translate3d(0, 0, 0);
   }
 }

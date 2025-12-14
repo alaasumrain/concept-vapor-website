@@ -6,7 +6,9 @@ $colors: (
   'white': rgb(239, 239, 239),
   'grey': rgb(176, 176, 176),
   'black': rgb(0, 0, 0),
-  'pink': rgb(255, 152, 162),
+  'primary': rgb(176, 156, 121), // Light brown/gold brand color (#B09C79)
+  'pink': rgb(176, 156, 121), // Keep for compatibility, using brand color
+  'brand-gold': rgb(176, 156, 121), // Brand gold color
 );
 
 :root {
@@ -14,5 +16,7 @@ $colors: (
     --#{$name}: #{$color};
     // for safari use case: https://ambientimpact.com/web/snippets/safari-bug-with-gradients-that-fade-to-transparent
     --#{$name}-transparent: #{color.change($color, $alpha: 0)};
+    // RGB values for rgba() usage
+    --#{$name}-rgb: #{color.red($color)}, #{color.green($color)}, #{color.blue($color)};
   }
 }
