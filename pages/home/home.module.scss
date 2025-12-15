@@ -370,6 +370,10 @@ $intro-duration: 2050ms;
         grid-column: 3 / span 5;
         top: desktop-vw(64px);
         padding: desktop-vw(24px) 0 desktop-vw(24px) desktop-vw(32px);
+
+        p {
+          font-size: desktop-vw(88px);
+        }
       }
     }
 
