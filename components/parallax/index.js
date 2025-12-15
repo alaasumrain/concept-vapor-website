@@ -28,6 +28,7 @@ export function Parallax({
         scrub: true,
         start: 'top bottom',
         end: 'bottom top',
+        markers: false,
         onUpdate: (e) => {
           if (position === 'top') {
             setY(e.progress * y)

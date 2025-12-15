@@ -12,7 +12,7 @@ import 'styles/global.scss'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
-  ScrollTrigger.defaults({ markers: process.env.NODE_ENV === 'development' })
+  ScrollTrigger.defaults({ markers: false })
 
   // merge rafs
   gsap.ticker.lagSmoothing(0)
@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
     window.history.scrollRestoration = 'manual'
   }, [])
 
-  ScrollTrigger.defaults({ markers: process.env.NODE_ENV === 'development' })
+  ScrollTrigger.defaults({ markers: false })
 
   return (
     <>
