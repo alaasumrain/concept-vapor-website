@@ -370,9 +370,12 @@ $intro-duration: 2050ms;
         grid-column: 3 / span 5;
         top: desktop-vw(64px);
         padding: desktop-vw(24px) 0 desktop-vw(24px) desktop-vw(32px);
+        overflow: hidden;
 
         p {
-          font-size: desktop-vw(88px);
+          font-size: desktop-vw(80px);
+          line-height: 1.1;
+          word-wrap: break-word;
         }
       }
     }
