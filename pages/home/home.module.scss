@@ -377,7 +377,7 @@ $intro-duration: 2050ms;
       grid-column: 1 / -1;
 
       @include desktop {
-        grid-column: 7 / span 4;
+        grid-column: 8 / span 4;
         margin-top: desktop-vw(256px);
       }
     }
