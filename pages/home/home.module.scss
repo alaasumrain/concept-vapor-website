@@ -367,7 +367,7 @@ $intro-duration: 2050ms;
     .highlight {
       @include desktop {
         border-left: 4px solid var(--theme-contrast);
-        grid-column: 3 / span 4;
+        grid-column: 3 / span 5;
         top: desktop-vw(64px);
         padding: desktop-vw(24px) 0 desktop-vw(24px) desktop-vw(32px);
       }
