@@ -69,16 +69,16 @@ export function CustomHead({ title = '', description, image, keywords }) {
           description,
           type: 'website',
           locale: 'en_US',
-          images: [
-            {
-              url: image
-                ? image.url
-                : '/og.png',
-              width: image ? image.width : 1200,
-              height: image ? image.height : 630,
-              alt: title,
-            },
-          ],
+          images: image
+            ? [
+                {
+                  url: image.url,
+                  width: image.width,
+                  height: image.height,
+                  alt: title,
+                },
+              ]
+            : [],
           defaultImageWidth: 1200,
           defaultImageHeight: 630,
           site_name: 'Concept Vapor Solutions',

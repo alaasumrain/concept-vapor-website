@@ -1,18 +1,6 @@
 # Concept Vapor Solutions Website
 
-This is the Concept Vapor Solutions website, adapted from the Lenis demo site.
-
-## 🎯 Project Status
-
-**Current Phase:** Setup & Planning
-**Original Template:** `/lenis-website/` (keep as reference)
-
-## 📋 Next Steps
-
-1. Content input needed (see `/DECISION_POINTS.md`)
-2. Visual identity decisions
-3. Asset collection
-4. Implementation
+Official website for Concept Vapor Solutions - a world-class manufacturing facility specializing in vapor technologies, functional nutrition, and advanced supplementation formats.
 
 ## 🚀 Development
 
@@ -21,8 +9,9 @@ npm install
 npm run dev
 ```
 
-## 📝 Notes
+## 📝 Tech Stack
 
-- Original template preserved in `/lenis-website/`
-- All animations and structure maintained
-- Ready for content replacement
+- Next.js
+- React
+- SCSS
+- Lenis (smooth scroll library)
