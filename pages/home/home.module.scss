@@ -64,10 +64,11 @@ $intro-duration: 2050ms;
   overflow: hidden;
 
   @include mobile {
-    padding-bottom: mobile-vw(16px);
+    padding-bottom: mobile-vw(24px);
+    padding-top: mobile-vw(24px);
 
     > div {
-      grid-gap: mobile-vw(11px);
+      grid-gap: mobile-vw(16px);
     }
   }
 
@@ -121,13 +122,21 @@ $intro-duration: 2050ms;
 
   .title {
     grid-column: 1 / -1;
-    margin-top: mobile-vw(30px);
-    width: var(--layout-width);
     position: relative;
     z-index: 1;
 
     @include mobile {
-      height: mobile-vw(85px);
+      height: auto;
+      max-width: 100%;
+      overflow: hidden;
+      margin-bottom: mobile-vw(24px);
+      
+      :global(.h1) {
+        font-size: mobile-vw(64px) !important;
+        line-height: 1.1;
+        word-break: break-word;
+        max-width: 100%;
+      }
     }
 
     @include desktop {
@@ -135,6 +144,7 @@ $intro-duration: 2050ms;
       position: absolute;
       top: 0;
       left: 2.5%;
+      width: var(--layout-width);
     }
   }
 
@@ -166,9 +176,15 @@ $intro-duration: 2050ms;
     display: flex;
     flex-direction: column;
     text-align: end;
-    grid-column: 2 / -1;
+    grid-column: 1 / -1;
     position: relative;
     z-index: 1;
+    max-width: 100%;
+    overflow: hidden;
+
+    @include mobile {
+      text-align: start;
+    }
 
     @include desktop {
       position: relative;
@@ -177,9 +193,17 @@ $intro-duration: 2050ms;
     }
 
     .subtitle {
-      margin-bottom: mobile-vw(8px);
       color: var(--white);
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+      @include mobile {
+        font-size: mobile-vw(28px) !important;
+        line-height: 1.3;
+        max-width: 100%;
+        overflow: hidden;
+        word-break: break-word;
+        margin-bottom: mobile-vw(16px);
+      }
 
       @include desktop {
         margin-bottom: desktop-vw(12px);
@@ -267,6 +291,23 @@ $intro-duration: 2050ms;
     .description {
       grid-column: 1 / -1;
 
+      @include mobile {
+        font-size: mobile-vw(18px) !important;
+        line-height: 1.5;
+        margin-bottom: mobile-vw(24px);
+        max-width: 100%;
+        overflow: hidden;
+        
+        p {
+          margin-bottom: mobile-vw(12px);
+          word-break: break-word;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
       @include desktop {
         grid-column: 3 / span 3;
       }
@@ -275,6 +316,17 @@ $intro-duration: 2050ms;
     .cta {
       grid-column: 1 / -1;
       text-align: end;
+
+      @include mobile {
+        margin-top: mobile-vw(12px);
+        font-size: mobile-vw(16px) !important;
+        min-height: mobile-vw(56px);
+        max-width: 100%;
+        
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
 
       &.in {
         opacity: 1;
@@ -315,7 +367,7 @@ $intro-duration: 2050ms;
 
     @include desktop {
       position: sticky;
-      top: 33%;
+      top: calc(33% + var(--header-height));
       align-self: start;
       border-left: 4px solid var(--theme-contrast);
       grid-column: 3 / span 4;
@@ -426,17 +478,19 @@ $intro-duration: 2050ms;
 
 .solution {
   position: relative;
+  margin-top: mobile-vw(-200px);
 
   color: var(--white);
   height: 500vh;
 
   @include desktop {
+    margin-top: desktop-vw(-500px);
     height: 1000vh;
   }
 
   .inner {
     position: sticky;
-    top: 0;
+    top: var(--header-height);
     margin: 0 auto;
     overflow: hidden;
     height: calc(100 * var(--vh, 1vh));

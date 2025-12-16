@@ -1,5 +1,4 @@
 import { useMediaQuery } from '@darkroom.engineering/hamo'
-import { Image } from 'components/image'
 import cn from 'clsx'
 import { useStore } from 'lib/store'
 import { useEffect, useState } from 'react'
@@ -56,8 +55,8 @@ export const Intro = () => {
         })
       }}
     >
-      <div className={cn(isLoaded && s.relative)}>
-        <LNS isLoaded={isLoaded} fill={'var(--black)'} />
+      <div className={cn(s.content, isLoaded && s.relative)}>
+        <LNS isLoaded={isLoaded} />
       </div>
     </div>
   )
@@ -66,7 +65,7 @@ export const Intro = () => {
 export const Title = ({ className }) => {
   return (
     <div className={className}>
-      <LNS fill={'var(--pink)'} />
+      <LNS />
     </div>
   )
 }
@@ -75,16 +74,10 @@ const LNS = ({ isLoaded, className }) => {
   return (
     <div className={cn(s.lns, className)}>
       <div
-        className={cn(s.start, isLoaded && s.show)}
-        style={{ '--index': 1, width: '100%', height: '100%', position: 'relative' }}
+        className={cn(s.start, isLoaded && s.show, s.companyName)}
+        style={{ '--index': 1 }}
       >
-        <Image
-          src="/images/concept-vapor-logo.png"
-          alt="Concept Vapor Solutions"
-          fill
-          style={{ objectFit: 'contain' }}
-          priority
-        />
+        Concept Vapor Solutions
       </div>
     </div>
   )

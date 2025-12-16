@@ -4,47 +4,22 @@ import { Link } from 'components/link'
 import dynamic from 'next/dynamic'
 import s from './footer.module.scss'
 
-const GitHub = dynamic(() => import('icons/github.svg'), { ssr: false })
+const Message = dynamic(() => import('icons/message.svg'), { ssr: false })
 
 export const Footer = () => {
   return (
     <footer className={cn('theme-light', s.footer)}>
       <div className={cn(s.top, 'layout-grid hide-on-mobile')}>
-        <p className={cn(s['first-line'], 'h1')}>
-          Concept Vapor Solutions <br />
-          <span className="contrast">Manufacturing Excellence</span>
-        </p>
-        {/* <div className={s['shameless-plug']}>
-          <p className="h4">Studio Freight</p>
-          <p className="p-s">
-            An independent creative <br /> studio built on principle
-          </p>
-        </div> */}
-        <p className={cn(s['last-line'], 'h1')}>
-          & open to <span className="hide-on-desktop">&nbsp;</span> features{' '}
-          <br /> and sponsors
-        </p>
         <Button
           className={s.cta}
           arrow
-          icon={<GitHub />}
+          icon={<Message />}
           href="/contact"
         >
           Get in touch
         </Button>
       </div>
       <div className={cn(s.top, 'layout-block hide-on-desktop')}>
-        {/* <div className={s['shameless-plug']}>
-          <p className="h4">Studio Freight</p>
-          <p className="p-s">
-            An independent creative <br /> studio built on principle
-          </p>
-        </div> */}
-        <p className={cn(s['first-line'], 'h1')}>
-          Concept Vapor Solutions <br />
-          <span className="contrast">Manufacturing Excellence</span>
-          <br /> & open to <br /> partnerships and collaborations
-        </p>
       </div>
       <div className={s.bottom}>
         <div className={s.links}>
@@ -75,14 +50,14 @@ export const Footer = () => {
         </p>
         <p className={cn('p-xs', s.developer)}>
           Developed by{' '}
-          <Link href="https://sumrain.tech" className={s.developerLink}>
+          <Link href="https://sumrain.ai" className={s.developerLink}>
             Sumrain Technologies
           </Link>
         </p>
         <Button
           className={cn(s.cta, 'hide-on-desktop')}
           arrow
-          icon={<GitHub />}
+          icon={<Message />}
           href="/contact"
         >
           Get in touch

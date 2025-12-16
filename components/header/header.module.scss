@@ -32,6 +32,11 @@
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
+
+  // Hide header when scrolling down
+  &.hidden {
+    transform: translateY(-100%);
+  }
 }
 
 .container {

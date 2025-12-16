@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { useStore } from 'lib/store'
 
-const GitHub = dynamic(() => import('icons/sponsor.svg'), { ssr: false })
+const Message = dynamic(() => import('icons/message.svg'), { ssr: false })
 
 export function Modal() {
   const [active, setActive] = useState(false)
@@ -43,25 +43,25 @@ export function Modal() {
         <button className={s.close} onClick={() => setActive(false)}></button>
         <div className={cn(s.text, 'p')}>
           <p>
-            Lenis is a 100% free and open-source project, built to enhance web
-            experiences. 🚀
+            Concept Vapor Solutions is a leading manufacturer specializing in
+            premium vapor products and innovative solutions. 🚀
             <br />
-            But maintaining and improving Lenis takes time and resources.
+            We're always looking to partner with brands and businesses.
           </p>
           <br />
           <p>
-            If you use Lenis and want to support its development, consider
-            becoming a sponsor! 💙
-            <br />A huge thank you to everyone who helps keep Lenis alive! 🙌
+            Interested in manufacturing partnerships, collaborations, or custom
+            solutions? Let's discuss how we can work together! 💙
+            <br />Get in touch with our team to explore opportunities. 🙌
           </p>
         </div>
         <Button
           className={cn(s.cta)}
           arrow
-          icon={<GitHub />}
-          href="https://github.com/sponsors/darkroomengineering"
+          icon={<Message />}
+          href="/contact"
         >
-          become a sponsor
+          Get in touch
         </Button>
       </div>
     </div>

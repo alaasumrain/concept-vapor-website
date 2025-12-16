@@ -37,6 +37,8 @@ html.lenis-stopped {
 
 body {
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 // custom cursor
@@ -82,4 +84,9 @@ svg.icon {
 
 .intro {
   overflow: hidden;
+  
+  body {
+    overflow: hidden;
+    background-color: var(--pink);
+  }
 }

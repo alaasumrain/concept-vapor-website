@@ -10,17 +10,37 @@ export const Header = forwardRef((_, ref) => {
   const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false)
   const [isMobileSubnavOpen, setIsMobileSubnavOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isHidden, setIsHidden] = useState(false)
   const dropdownRef = useRef(null)
   const dropdownTimeout = useRef(null)
+  const lastScrollY = useRef(0)
 
-  // Track scroll for header styling
+  // Track scroll for header styling and hide/show
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      const currentScrollY = window.scrollY
+      setIsScrolled(currentScrollY > 50)
+      
+      // Hide header when scrolling down, show when scrolling up
+      // Don't hide if at the top of the page or if mobile menu is open
+      if (!isMenuOpen && currentScrollY > 100) {
+        if (currentScrollY > lastScrollY.current) {
+          // Scrolling down
+          setIsHidden(true)
+        } else {
+          // Scrolling up
+          setIsHidden(false)
+        }
+      } else {
+        // At top of page or menu open
+        setIsHidden(false)
+      }
+      
+      lastScrollY.current = currentScrollY
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [isMenuOpen])
 
   // Close menu on route change
   useEffect(() => {
@@ -75,7 +95,7 @@ export const Header = forwardRef((_, ref) => {
   }
 
   return (
-    <header className={cn(s.header, isScrolled && s.scrolled, isMenuOpen && s.menuOpen)} ref={ref}>
+    <header className={cn(s.header, isScrolled && s.scrolled, isMenuOpen && s.menuOpen, isHidden && s.hidden)} ref={ref}>
       <div className={cn('layout-block', s.container)}>
         <div className={s.head}>
           {/* Logo */}

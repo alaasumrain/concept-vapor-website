@@ -19,8 +19,8 @@ import { useIntersection, useWindowSize } from 'react-use'
 import s from './home.module.scss'
 
 // const SFDR = dynamic(() => import('icons/sfdr.svg'), { ssr: false })
-const GitHub = dynamic(() => import('icons/github.svg'), { ssr: false })
 const Sponsor = dynamic(() => import('icons/sponsor.svg'), { ssr: false })
+const ArrowRight = dynamic(() => import('icons/arrow-right.svg'), { ssr: false })
 
 const Parallax = dynamic(
   () => import('components/parallax').then((mod) => mod.Parallax),
@@ -266,7 +266,7 @@ export default function Home() {
           <Button
             className={cn(s.cta, s.documentation, introOut && s.in)}
             arrow
-            icon={<GitHub />}
+            icon={<ArrowRight />}
             href="#divisions"
           >
             explore solutions
@@ -275,7 +275,7 @@ export default function Home() {
             className={cn(s.cta, s.sponsor, introOut && s.in)}
             arrow
             icon={<Sponsor />}
-            href="#contact"
+            href="/contact"
           >
             contact us
           </Button>
@@ -431,6 +431,7 @@ export default function Home() {
         </section>
       </section>
       <section
+        id="divisions"
         ref={(node) => {
           inuseRectRef(node)
           inUseRef.current = node
