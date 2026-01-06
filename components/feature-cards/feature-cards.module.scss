@@ -1,7 +1,7 @@
 @import 'styles/_functions';
 
 .features {
-  height: 1600vh;
+  height: 1000vh;
 
   @include desktop {
     min-height: desktop-vw(1310px);
@@ -11,12 +11,18 @@
     --d: 100vh;
 
     position: absolute;
-    will-change: transform;
-    transition-duration: 1.2s;
-    transition-property: opacity, transform;
+    will-change: transform, opacity, filter;
+    transition-duration: 0.8s;
+    transition-property: opacity, transform, filter;
     transition-timing-function: var(--ease-out-expo);
-    // transform: translate3d(0, calc(var(--progress) * -1 * var(--d)), 0);
-    // transform: translateY(calc(var(--progress) * -1 * var(--d)));
+    transform: translate3d(
+        calc(var(--progress) * var(--depth) * 100%),
+        calc(var(--progress) * var(--depth) * 100%),
+        0
+      )
+      scale(calc(1 - var(--progress) * var(--depth) * 0.1));
+    opacity: calc(1 - var(--progress) * var(--depth) * 0.5);
+    filter: blur(calc(var(--progress) * var(--depth) * 10px));
 
     @include mobile {
       @for $i from 0 through 8 {
@@ -55,8 +61,14 @@
     }
 
     &:not(.current) {
-      transform: translate3d(100%, 100%, 0);
+      transform: translate3d(
+          calc(var(--depth) * 100%),
+          calc(var(--depth) * 100%),
+          0
+        )
+        scale(calc(1 - var(--depth) * 0.1));
       opacity: 0;
+      filter: blur(10px);
     }
   }
 

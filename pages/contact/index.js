@@ -52,13 +52,13 @@ export default function Contact() {
         <section className={s.hero}>
           <div className={s.heroImage}>
             <Image
-              src="/images/contact/contact-hero.png"
+              src="/images/contact/contact-hero.webp"
               alt="Get in Touch"
               fill
               className={s.heroImageBg}
               priority
               sizes="100vw"
-              quality={90}
+              quality={85}
               loading="eager"
             />
           </div>

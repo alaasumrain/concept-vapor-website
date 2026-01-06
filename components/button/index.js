@@ -13,13 +13,10 @@ export const Button = ({
   onClick,
   className,
   style,
+  glossy = false,
 }) => {
-  return href ? (
-    <Link
-      href={href}
-      className={cn(s.button, className, icon && s['has-icon'])}
-      style={style}
-    >
+  const content = (
+    <>
       {icon && <span className={s.icon}>{icon}</span>}
       <span className={s.text}>
         <span className={s.visible}>
@@ -29,22 +26,23 @@ export const Button = ({
           {children} {arrow && <Arrow className={s.arrow} />}
         </span>
       </span>
+    </>
+  )
+
+  const buttonClass = cn(
+    s.button,
+    className,
+    icon && s['has-icon'],
+    glossy && s.glossy
+  )
+
+  return href ? (
+    <Link href={href} className={buttonClass} style={style}>
+      {content}
     </Link>
   ) : (
-    <button
-      className={cn(s.button, className, icon && s['has-icon'])}
-      style={style}
-      onClick={onClick}
-    >
-      {icon && <span className={s.icon}>{icon}</span>}
-      <span className={s.text}>
-        <span className={s.visible}>
-          {children} {arrow && <Arrow className={s.arrow} />}
-        </span>
-        <span aria-hidden="true" className={s.hidden}>
-          {children} {arrow && <Arrow className={s.arrow} />}
-        </span>
-      </span>
+    <button className={buttonClass} style={style} onClick={onClick}>
+      {content}
     </button>
   )
 }

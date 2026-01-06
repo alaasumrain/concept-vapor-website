@@ -3,10 +3,13 @@ import { Link } from 'components/link'
 import { useRouter } from 'next/router'
 import { forwardRef, useState, useEffect, useRef } from 'react'
 import s from './header.module.scss'
+import { useStore } from 'lib/store'
+import { Image } from 'components/image'
+import gsap from 'gsap'
 
 export const Header = forwardRef((_, ref) => {
   const router = useRouter()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { navIsOpen, setNavIsOpen, lenis } = useStore()
   const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false)
   const [isMobileSubnavOpen, setIsMobileSubnavOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -14,6 +17,18 @@ export const Header = forwardRef((_, ref) => {
   const dropdownRef = useRef(null)
   const dropdownTimeout = useRef(null)
   const lastScrollY = useRef(0)
+  const mobileNavRef = useRef(null)
+
+  // Lenis control
+  useEffect(() => {
+    if (lenis) {
+      if (navIsOpen) {
+        lenis.stop()
+      } else {
+        lenis.start()
+      }
+    }
+  }, [navIsOpen, lenis])
 
   // Track scroll for header styling and hide/show
   useEffect(() => {
@@ -22,17 +37,13 @@ export const Header = forwardRef((_, ref) => {
       setIsScrolled(currentScrollY > 50)
       
       // Hide header when scrolling down, show when scrolling up
-      // Don't hide if at the top of the page or if mobile menu is open
-      if (!isMenuOpen && currentScrollY > 100) {
+      if (!navIsOpen && currentScrollY > 100) {
         if (currentScrollY > lastScrollY.current) {
-          // Scrolling down
           setIsHidden(true)
         } else {
-          // Scrolling up
           setIsHidden(false)
         }
       } else {
-        // At top of page or menu open
         setIsHidden(false)
       }
       
@@ -40,14 +51,33 @@ export const Header = forwardRef((_, ref) => {
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [isMenuOpen])
+  }, [navIsOpen])
 
   // Close menu on route change
   useEffect(() => {
-    setIsMenuOpen(false)
+    setNavIsOpen(false)
     setIsDesktopDropdownOpen(false)
     setIsMobileSubnavOpen(false)
-  }, [router.pathname])
+  }, [router.pathname, setNavIsOpen])
+
+  // GSAP Animation for Mobile Menu
+  useEffect(() => {
+    if (!mobileNavRef.current) return
+
+    if (navIsOpen) {
+      gsap.to(mobileNavRef.current, {
+        clipPath: 'circle(150% at 100% 0%)',
+        duration: 0.8,
+        ease: 'power4.inOut',
+      })
+    } else {
+      gsap.to(mobileNavRef.current, {
+        clipPath: 'circle(0% at 100% 0%)',
+        duration: 0.6,
+        ease: 'power4.inOut',
+      })
+    }
+  }, [navIsOpen])
 
   // Close desktop dropdown when clicking outside
   useEffect(() => {
@@ -95,16 +125,21 @@ export const Header = forwardRef((_, ref) => {
   }
 
   return (
-    <header className={cn(s.header, isScrolled && s.scrolled, isMenuOpen && s.menuOpen, isHidden && s.hidden)} ref={ref}>
+    <header className={cn(s.header, isScrolled && s.scrolled, navIsOpen && s.menuOpen, isHidden && s.hidden)} ref={ref}>
       <div className={cn('layout-block', s.container)}>
         <div className={s.head}>
           {/* Logo */}
           <Link href="/" className={s.logo}>
-            <div className={s.logoMark}>CVS</div>
-            <div className={s.logoText}>
-              <span className={s.logoPrimary}>CONCEPT VAPOR</span>
-              <span className={s.logoSecondary}>SOLUTIONS</span>
-            </div>
+            <Image
+              src="/images/concept_logo_cmyk.png"
+              alt="Concept Vapor Solutions Logo"
+              width={200}
+              height={60}
+              className={s.logoImage}
+              priority
+              loading="eager"
+              transparent
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -166,15 +201,8 @@ export const Header = forwardRef((_, ref) => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className={cn(s.menuToggle, isMenuOpen && s.menuOpen)}
-            onClick={() => {
-              const newState = !isMenuOpen
-              setIsMenuOpen(newState)
-              // Reset subnav when closing menu
-              if (!newState) {
-                setIsMobileSubnavOpen(false)
-              }
-            }}
+            className={cn(s.menuToggle, navIsOpen && s.menuOpen)}
+            onClick={() => setNavIsOpen(!navIsOpen)}
             aria-label="Toggle menu"
           >
             <span></span>
@@ -183,7 +211,11 @@ export const Header = forwardRef((_, ref) => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={cn(s.mobileNav, isMenuOpen && s.open)}>
+        <div 
+          className={cn(s.mobileNav, navIsOpen && s.open)} 
+          ref={mobileNavRef}
+          data-lenis-prevent
+        >
           <nav className={s.mobileNavInner}>
             {navLinks.map((link, idx) => (
               link.dropdown ? (
@@ -204,7 +236,7 @@ export const Header = forwardRef((_, ref) => {
                         key={item.href}
                         href={item.href}
                         className={s.mobileSubnavLink}
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => setNavIsOpen(false)}
                         style={{ '--delay': `${(idx * 80) + (subIdx * 50)}ms` }}
                       >
                         {item.label}
@@ -217,7 +249,7 @@ export const Header = forwardRef((_, ref) => {
                   key={link.href}
                   href={link.href}
                   className={cn(s.mobileNavLink, isActive(link.href) && s.active)}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => setNavIsOpen(false)}
                   style={{ '--delay': `${idx * 80}ms` }}
                 >
                   {link.label}

@@ -18,14 +18,33 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 50%;
-    height: 100vw;
-    width: 200vw;
-    background: radial-gradient(var(--pink), var(--pink-transparent) 70%);
-    // background: linear-gradient(to top, var(--pink), var(--pink-transparent));
-    transform: translateX(-50%) translateY(50vh);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at center,
+      transparent 0%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
     opacity: 0.5;
+    pointer-events: none;
   }
+}
+
+.canvasOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
 
 $delay-intro-bottom: 150ms;
@@ -480,7 +499,7 @@ $intro-duration: 2050ms;
   position: relative;
   margin-top: mobile-vw(-200px);
 
-  color: var(--white);
+  color: var(--black);
   height: 500vh;
 
   @include desktop {
@@ -504,6 +523,24 @@ $intro-duration: 2050ms;
       left: 50%;
       transform: translateX(-50%) scaleX(var(--progress2));
       top: 0;
+      opacity: var(--progress2);
+      transition: opacity 0.3s ease;
+    }
+
+    .mist {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(calc(var(--progress1) * 15px));
+      background: radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(0, 0, 0, calc(var(--progress1) * 0.4)) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
     }
 
     @include desktop {

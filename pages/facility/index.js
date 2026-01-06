@@ -74,13 +74,13 @@ export default function Facility() {
         <section className={s.hero}>
           <div className={s.heroImage}>
             <Image
-              src="/images/facility/facility-hero.png"
+              src="/images/facility/facility-hero.webp"
               alt="Concept Vapor Solutions Facility"
               fill
               className={s.heroImageBg}
               priority
               sizes="100vw"
-              quality={90}
+              quality={80}
               loading="eager"
             />
           </div>
@@ -155,13 +155,13 @@ export default function Facility() {
               <ScrollReveal animation="fade-left" delay={150} className={s.cleanroomsImage}>
                 <div className={s.cleanroomImageWrapper}>
                   <Image
-                    src="/images/facility/clean-room.png"
+                    src="/images/facility/clean-room.webp"
                     alt="ISO Class 7 & 8 Cleanroom"
                     fill
                     className={s.cleanroomImage}
-                    quality={90}
+                    quality={75}
                     loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   />
                 </div>
               </ScrollReveal>
@@ -176,13 +176,13 @@ export default function Facility() {
               <ScrollReveal animation="fade-right" className={s.automationImage}>
                 <div className={s.automationImageWrapper}>
                   <Image
-                    src="/images/facility/automation.png"
+                    src="/images/facility/automation.webp"
                     alt="Advanced Production Automation"
                     fill
                     className={s.automationImageImg}
-                    quality={90}
+                    quality={75}
                     loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   />
                 </div>
               </ScrollReveal>
@@ -230,13 +230,13 @@ export default function Facility() {
               <ScrollReveal animation="fade-left" delay={150} className={s.rdVisual}>
                 <div className={s.rdImageWrapper}>
                   <Image
-                    src="/images/facility/facility-lab.png"
+                    src="/images/facility/facility-lab.webp"
                     alt="R&D Laboratory"
                     fill
                     className={s.rdImage}
-                    quality={90}
+                    quality={75}
                     loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   />
                 </div>
                 <div className={s.rdCapabilities}>

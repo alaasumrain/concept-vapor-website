@@ -80,13 +80,13 @@ export default function About() {
         <section className={s.hero}>
           <div className={s.heroImage}>
             <Image
-              src="/images/about-us/cvs-hero.png"
+              src="/images/about-us/cvs-hero.webp"
               alt="Concept Vapor Solutions Manufacturing Facility"
               fill
               className={s.heroImageBg}
               priority
               sizes="100vw"
-              quality={90}
+              quality={80}
               loading="eager"
             />
           </div>
@@ -120,13 +120,14 @@ export default function About() {
                 <ScrollReveal animation="fade-up" delay={100}>
                   <div className={s.equipmentImage}>
                     <Image
-                      src="/images/about-us/cvs-equipment.png"
+                      src="/images/about-us/cvs-equipment.webp"
                       alt="Manufacturing Equipment"
                       width={800}
                       height={600}
                       className={s.equipmentImageImg}
-                      quality={90}
+                      quality={75}
                       loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 800px"
                     />
                   </div>
                 </ScrollReveal>
@@ -137,13 +138,14 @@ export default function About() {
                 <ScrollReveal animation="fade-up" delay={150}>
                   <div className={s.mapContainer}>
                     <Image
-                      src="/images/about-us/cvs-map.png"
+                      src="/images/about-us/cvs-map.webp"
                       alt="Jebel Ali Free Zone of Dubai Location"
                       width={800}
                       height={450}
                       className={s.mapImage}
-                      quality={90}
+                      quality={75}
                       loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 800px"
                     />
                   </div>
                 </ScrollReveal>

@@ -176,4 +176,52 @@
       }
     }
   }
+
+  &.glossy {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    border-radius: mobile-vw(30px);
+    padding: mobile-vw(4px) mobile-vw(20px);
+    color: var(--black);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    min-height: mobile-vw(44px);
+    width: auto;
+    display: inline-flex;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .text {
+      .visible,
+      .hidden {
+        padding: 0 mobile-vw(10px);
+      }
+    }
+
+    @include desktop {
+      border-radius: desktop-vw(30px);
+      padding: desktop-vw(4px) desktop-vw(24px);
+      min-height: desktop-vw(48px);
+    }
+
+    @include hover {
+      &:hover {
+        background: rgba(255, 255, 255, 0.4);
+        border-color: rgba(255, 255, 255, 0.4);
+        color: var(--black);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+      }
+    }
+  }
 }

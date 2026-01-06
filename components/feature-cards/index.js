@@ -87,6 +87,7 @@ export const FeatureCards = () => {
               text={card.text}
               number={index + 1}
               current={index <= current - 1}
+              total={cards.length}
             />
           ))}
         </div>
@@ -95,9 +96,18 @@ export const FeatureCards = () => {
   )
 }
 
-const SingleCard = ({ text, number, index, current }) => {
+const SingleCard = ({ text, number, index, current, total }) => {
+  // Calculate depth based on index to apply staggered blur and scale
+  const depth = total - index
+
   return (
-    <div className={cn(s.card, current && s.current)} style={{ '--i': index }}>
+    <div
+      className={cn(s.card, current && s.current)}
+      style={{
+        '--i': index,
+        '--depth': depth,
+      }}
+    >
       <Card background="rgba(239, 239, 239, 0.8)" number={number} text={text} />
     </div>
   )

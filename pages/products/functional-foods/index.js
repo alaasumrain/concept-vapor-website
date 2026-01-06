@@ -27,7 +27,7 @@ export default function FunctionalFoods() {
         'Enriched with prebiotic fibers',
         'Customizable packaging & volumes',
       ],
-      image: '/images/products/functional-foods/prebiotic-sodas.png',
+      image: '/images/products/functional-foods/prebiotic-sodas.webp',
     },
     {
       number: '02',
@@ -40,7 +40,7 @@ export default function FunctionalFoods() {
         'Flexible flavor options',
         'Convenient packaging',
       ],
-      image: '/images/products/functional-foods/hydration-tonics.png',
+      image: '/images/products/functional-foods/hydration-tonics.webp',
     },
     {
       number: '03',
@@ -53,7 +53,7 @@ export default function FunctionalFoods() {
         'No insulin spikes',
         'Scalable production',
       ],
-      image: '/images/products/functional-foods/energy-fizz.png',
+      image: '/images/products/functional-foods/energy-fizz.webp',
     },
     {
       number: '04',
@@ -66,7 +66,7 @@ export default function FunctionalFoods() {
         'Post-workout recovery',
         'Custom branding options',
       ],
-      image: '/images/products/functional-foods/protein-drinks.png',
+      image: '/images/products/functional-foods/protein-drinks.webp',
     },
     {
       number: '05',
@@ -79,7 +79,7 @@ export default function FunctionalFoods() {
         'Low-glycemic',
         'Flexible shapes & flavors',
       ],
-      image: '/images/products/functional-foods/vitamin-gummies.png',
+      image: '/images/products/functional-foods/vitamin-gummies.webp',
     },
     {
       number: '06',
@@ -92,7 +92,7 @@ export default function FunctionalFoods() {
         'Custom nutrients & flavors',
         'Premium positioning',
       ],
-      image: '/images/products/functional-foods/supplement-gummies.png',
+      image: '/images/products/functional-foods/supplement-gummies.webp',
     },
   ]
 
@@ -125,13 +125,13 @@ export default function FunctionalFoods() {
         <section className={s.hero}>
           <div className={s.heroImage}>
             <Image
-              src="/images/products/functional-foods/functional-foods-hero.png"
+              src="/images/products/functional-foods/functional-foods-hero.webp"
               alt="Functional Foods & Supplements"
               fill
               className={s.heroImageBg}
               priority
               sizes="100vw"
-              quality={90}
+              quality={85}
               loading="eager"
             />
           </div>

@@ -242,6 +242,8 @@ const material = new MeshPhysicalMaterial({
   roughness: 0.4,
   wireframe: true,
   side: DoubleSide,
+  transparent: true,
+  opacity: 0.6,
 })
 
 export function Arm() {

@@ -209,12 +209,14 @@ export default function Home() {
         <div className={s.heroImage}>
           <div className={s.imageWrapper}>
             <Image
-              src="/images/hero-image.png"
+              src="/images/hero-image.webp"
               alt="Concept Vapor Solutions"
               fill
               priority
               className={s.backgroundImage}
               style={{ objectFit: 'cover' }}
+              sizes="100vw"
+              quality={80}
             />
             <div className={s.imageOverlay} />
           </div>
@@ -396,13 +398,14 @@ export default function Home() {
         className={s.solution}
       >
         <div className={s.inner}>
+          <div className={s.mist} />
           <div className={s.zoom}>
             <h2 className={cn(s.first, 'h1 vh')}>
               world-class <br />
               <span className="contrast">manufacturing</span>
             </h2>
             <h2 className={cn(s.enter, 'h3 vh')}>
-              Concept <br /> Vapor Solutions
+              <br />
             </h2>
             <h2 className={cn(s.second, 'h1 vh')}>Innovation. Precision. Compliance.</h2>
           </div>

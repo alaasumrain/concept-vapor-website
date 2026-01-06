@@ -6,36 +6,48 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(239, 239, 239, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: mobile-vw(16px) 0;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  padding: mobile-vw(20px) 0;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 
   @include desktop {
-    padding: desktop-vw(20px) 0;
+    padding: desktop-vw(24px) 0;
   }
 
   &.scrolled {
     padding: mobile-vw(12px) 0;
-    background-color: rgba(239, 239, 239, 0.98);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 
     @include desktop {
       padding: desktop-vw(14px) 0;
     }
   }
 
-  // When mobile menu is open, make header fully opaque
   &.menuOpen {
-    background-color: var(--white);
+    background-color: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
 
-  // Hide header when scrolling down
   &.hidden {
     transform: translateY(-100%);
+  }
+}
+
+.logoImage {
+  width: mobile-vw(140px);
+  height: auto;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+
+  @include desktop {
+    width: desktop-vw(180px);
   }
 }
 
@@ -364,14 +376,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: mobile-vw(7px);
-  width: mobile-vw(32px);
-  height: mobile-vw(32px);
-  background: none;
-  border: none;
+  align-items: center;
+  width: mobile-vw(44px);
+  height: mobile-vw(44px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
   cursor: pointer;
   padding: 0;
   z-index: 101;
+  transition: all 0.3s ease;
 
   @include desktop {
     display: none;
@@ -379,26 +394,30 @@
 
   span {
     display: block;
-    width: 100%;
-    height: 2px;
+    width: mobile-vw(20px);
+    height: 1.5px;
     background-color: var(--black);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    transform-origin: center;
+    position: absolute;
+  }
+
+  span:nth-child(1) {
+    transform: translateY(-3px);
+  }
+  span:nth-child(2) {
+    transform: translateY(3px);
   }
 
   &.menuOpen {
+    background: var(--white);
     span:nth-child(1) {
-      transform: rotate(45deg) translateY(mobile-vw(6px));
+      transform: rotate(45deg);
     }
     span:nth-child(2) {
-      transform: rotate(-45deg) translateY(mobile-vw(-6px));
+      transform: rotate(-45deg);
     }
   }
 }
-
-// ═══════════════════════════════════════════════════════════
-// MOBILE NAVIGATION
-// ═══════════════════════════════════════════════════════════
 
 .mobileNav {
   position: fixed;
@@ -406,107 +425,83 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--white);
+  background: radial-gradient(
+    circle at 100% 0%,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(248, 248, 248, 0.95) 100%
+  );
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
   z-index: 9;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: mobile-vw(100px) mobile-vw(32px) mobile-vw(40px);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+  justify-content: flex-start;
+  padding: mobile-vw(120px) mobile-vw(24px) mobile-vw(40px);
+  clip-path: circle(0% at 100% 0%);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 
   @include desktop {
     display: none;
   }
 
   &.open {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease-out, visibility 0s linear;
+    // Handled by GSAP
   }
 }
 
 .mobileNavInner {
   display: flex;
   flex-direction: column;
-  gap: mobile-vw(8px);
+  gap: mobile-vw(4px);
 }
 
 .mobileNavLink {
-  font-size: mobile-vw(32px);
+  font-size: mobile-vw(42px);
   font-weight: 600;
   color: var(--black);
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.02em;
   font-family: var(--font-panchang);
-  padding: mobile-vw(12px) 0;
+  padding: mobile-vw(16px) 0;
   opacity: 0;
-  transform: translateY(mobile-vw(20px));
-  transition: color 0.2s ease;
+  transform: translateY(mobile-vw(30px));
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: all 0.3s ease;
 
-  .mobileNav.open & {
-    animation: mobileNavReveal 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    animation-delay: var(--delay, 0ms);
+  &:active {
+    opacity: 0.6;
+    transform: scale(0.98);
   }
 
-  &:hover,
+  .mobileNav.open & {
+    // Handled by GSAP
+  }
+
   &.active {
     color: var(--brand-gold);
   }
 }
 
-@keyframes mobileNavReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.mobileDropdownTrigger {
-  cursor: pointer;
-
-  .mobileArrow {
-    width: mobile-vw(20px);
-    height: mobile-vw(20px);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  &.open .mobileArrow {
-    transform: rotate(180deg);
-  }
-}
-
-.mobileSubnav {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
-
-  &.open {
-    grid-template-rows: 1fr;
-  }
-}
-
 .mobileSubnavLink {
-  font-size: mobile-vw(18px);
+  font-size: mobile-vw(16px);
   font-weight: 500;
   color: var(--grey);
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: mobile-vw(12px) 0 mobile-vw(12px) mobile-vw(24px);
-  border-left: 2px solid rgba(176, 156, 121, 0.3);
-  margin-left: mobile-vw(8px);
-  transition: color 0.2s ease, border-color 0.2s ease;
+  letter-spacing: 0.1em;
+  padding: mobile-vw(14px) 0 mobile-vw(14px) mobile-vw(24px);
+  border-left: 1px solid rgba(176, 156, 121, 0.2);
+  margin-left: mobile-vw(4px);
+  transition: all 0.3s ease;
 
-  &:hover {
+  &:active {
     color: var(--brand-gold);
-    border-color: var(--brand-gold);
+    border-left-color: var(--brand-gold);
+    background: rgba(176, 156, 121, 0.05);
   }
 }
 

@@ -27,7 +27,7 @@ export default function Pharmaceutical() {
         'Consumer-friendly, safe administration',
         'Customizable packaging and branding',
       ],
-      image: '/images/products/pharmaceutical/dosing-devices.png',
+      image: '/images/products/pharmaceutical/dosing-devices.webp',
     },
     {
       number: '02',
@@ -40,7 +40,7 @@ export default function Pharmaceutical() {
         'Customizable sizes, shapes, and materials',
         'Compatible with various active compounds',
       ],
-      image: '/images/products/pharmaceutical/device-formats.png',
+      image: '/images/products/pharmaceutical/device-formats.webp',
     },
     {
       number: '03',
@@ -53,7 +53,7 @@ export default function Pharmaceutical() {
         'Scalable from pilot batches to commercial volumes',
         'Regulatory compliance documentation support',
       ],
-      image: '/images/products/pharmaceutical/oem-solutions.png',
+      image: '/images/products/pharmaceutical/oem-solutions.webp',
     },
     {
       number: '04',
@@ -66,7 +66,7 @@ export default function Pharmaceutical() {
         'Tamper-evident and transport-stable',
         'Adaptable for health and wellness markets',
       ],
-      image: '/images/products/pharmaceutical/consumer-delivery.png',
+      image: '/images/products/pharmaceutical/consumer-delivery.webp',
     },
   ]
 
@@ -99,13 +99,13 @@ export default function Pharmaceutical() {
         <section className={s.hero}>
           <div className={s.heroImage}>
             <Image
-              src="/images/products/pharmaceutical/pharmaceutical-hero.png"
+              src="/images/products/pharmaceutical/pharmaceutical-hero.webp"
               alt="Pharmaceutical Delivery Devices"
               fill
               className={s.heroImageBg}
               priority
               sizes="100vw"
-              quality={90}
+              quality={85}
               loading="eager"
             />
           </div>

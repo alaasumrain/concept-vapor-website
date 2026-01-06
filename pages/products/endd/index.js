@@ -28,7 +28,7 @@ export default function ENDD() {
         'Customizable bottle sizes and dispensing options',
         'Tamper-evident and child-resistant packaging',
       ],
-      image: '/images/products/endd/e-liquids.png',
+      image: '/images/products/endd/e-liquids.webp',
     },
     {
       number: '02',
@@ -42,7 +42,7 @@ export default function ENDD() {
         'Full customization of materials and finishes',
         'Branding options including wraps and custom molds',
       ],
-      image: '/images/products/endd/disposable-devices.png',
+      image: '/images/products/endd/disposable-devices.webp',
     },
     {
       number: '03',
@@ -56,7 +56,7 @@ export default function ENDD() {
         'Custom pod shapes and capacities',
         'High-speed automated filling and sealing',
       ],
-      image: '/images/products/endd/pods.png',
+      image: '/images/products/endd/pods.webp',
     },
     {
       number: '04',
@@ -70,7 +70,7 @@ export default function ENDD() {
         'Customizable pouch size and texture',
         'Private-label and OEM support',
       ],
-      image: '/images/products/endd/snus-pouches.png',
+      image: '/images/products/endd/snus-pouches.webp',
     },
     {
       number: '05',
@@ -83,7 +83,7 @@ export default function ENDD() {
         'Reduced-intensity devices for step-down programs',
         'Custom formulations for non-nicotine products',
       ],
-      image: '/images/products/endd/quit-vaping.png',
+      image: '/images/products/endd/quit-vaping.webp',
     },
   ]
 
@@ -116,13 +116,13 @@ export default function ENDD() {
         <section className={s.hero}>
           <div className={s.heroImage}>
             <Image
-              src="/images/products/endd/endd-hero.png"
+              src="/images/products/endd/endd-hero.webp"
               alt="Electronic Nicotine Delivery Devices"
               fill
               className={s.heroImageBg}
               priority
               sizes="100vw"
-              quality={90}
+              quality={85}
               loading="eager"
             />
           </div>

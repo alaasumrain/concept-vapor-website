@@ -30,7 +30,7 @@ export default function Products() {
       ],
       cta: 'Explore ENDD',
       href: '/products/endd',
-      image: '/images/products/endd-hero.png',
+      image: '/images/products/endd-hero.webp',
     },
     {
       number: '02',
@@ -45,7 +45,7 @@ export default function Products() {
       ],
       cta: 'Explore Foods',
       href: '/products/functional-foods',
-      image: '/images/products/functional-foods-hero.png',
+      image: '/images/products/functional-foods-hero.webp',
     },
     {
       number: '03',
@@ -60,7 +60,7 @@ export default function Products() {
       ],
       cta: 'Explore Pharma',
       href: '/products/pharmaceutical',
-      image: '/images/products/pharmaceutical-hero.png',
+      image: '/images/products/pharmaceutical-hero.webp',
     },
   ]
 
