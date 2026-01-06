@@ -3,6 +3,8 @@ import { Image } from 'components/image'
 import { Layout } from 'layouts/default'
 import dynamic from 'next/dynamic'
 import s from './endd.module.scss'
+import { endd } from 'content/products-endd'
+import { seoConfig } from 'content/seo'
 
 const AppearTitle = dynamic(
   () => import('components/appear-title').then((mod) => mod.AppearTitle),
@@ -15,109 +17,22 @@ const ScrollReveal = dynamic(
 )
 
 export default function ENDD() {
-  const products = [
-    {
-      number: '01',
-      title: 'Bottled E-Liquids',
-      tagline: 'Crafted for purity, stability, and exceptional sensory performance',
-      description: 'Our e-liquids are developed with careful attention to flavor fidelity, vapor performance, and consumer experience—offering unmatched consistency across batches.',
-      features: [
-        'Manufactured under strict cleanroom conditions',
-        'Wide variety of flavor profiles and nicotine strengths',
-        'Freebase and nicotine salt formulations',
-        'Customizable bottle sizes and dispensing options',
-        'Tamper-evident and child-resistant packaging',
-      ],
-      image: '/images/products/endd/e-liquids.webp',
-    },
-    {
-      number: '02',
-      title: 'Disposable Prefilled Devices',
-      tagline: 'High-performance all-in-one devices engineered for convenience',
-      description: 'Each device is assembled, filled, and sealed with advanced leak-prevention and quality control protocols to ensure superior stability and safety.',
-      features: [
-        'Multiple battery capacities and coil technologies',
-        'Adjustable or fixed airflow options',
-        'Various tank volumes and puff counts',
-        'Full customization of materials and finishes',
-        'Branding options including wraps and custom molds',
-      ],
-      image: '/images/products/endd/disposable-devices.webp',
-    },
-    {
-      number: '03',
-      title: 'Disposable Prefilled Pods',
-      tagline: 'Precision-engineered pods compatible with a wide range of systems',
-      description: 'We provide fully integrated pod manufacturing—from formulation and filling to final assembly and packaging.',
-      features: [
-        'Leak-resistant pod structures',
-        'Coil technologies optimized for flavor delivery',
-        'Wide flavor and nicotine strength catalog',
-        'Custom pod shapes and capacities',
-        'High-speed automated filling and sealing',
-      ],
-      image: '/images/products/endd/pods.webp',
-    },
-    {
-      number: '04',
-      title: 'Snus Pouches',
-      tagline: 'Modern smokeless alternative for smooth, discreet delivery',
-      description: 'Our snus pouches are engineered for consistent release, clean mouthfeel, and stable flavor, offering brands a premium smokeless experience.',
-      features: [
-        'Multiple nicotine concentrations available',
-        'Extensive flavor options including mint and fruit',
-        'Moist and dry pouch formats',
-        'Customizable pouch size and texture',
-        'Private-label and OEM support',
-      ],
-      image: '/images/products/endd/snus-pouches.webp',
-    },
-    {
-      number: '05',
-      title: 'Quit-Vaping Assisting Products',
-      tagline: 'Supporting wellness-focused alternatives for transition',
-      description: 'These solutions help brands serve consumers seeking healthier alternatives while maintaining the sensory familiarity they expect.',
-      features: [
-        'Nicotine and nicotine-free formulations',
-        'Behavior-supportive flavor profiles',
-        'Reduced-intensity devices for step-down programs',
-        'Custom formulations for non-nicotine products',
-      ],
-      image: '/images/products/endd/quit-vaping.webp',
-    },
-  ]
-
-  const capabilities = [
-    'ISO Class 7 & 8 cleanroom manufacturing',
-    'Advanced leak-prevention protocols',
-    'High-speed automated production lines',
-    'Compliance-driven documentation',
-    'Global regulatory alignment',
-  ]
-
-  const partnerBenefits = [
-    { title: 'Cleanrooms', description: 'ISO Class 7 & 8 certified' },
-    { title: 'Flexibility', description: 'Custom formats & flavors' },
-    { title: 'Quality', description: 'Rigorous QA/QC protocols' },
-    { title: 'Scale', description: 'Pilot to mass production' },
-  ]
+  const products = endd.products
+  const capabilities = endd.capabilities.list
+  const partnerBenefits = endd.partnership.benefits
 
   return (
     <Layout
       theme="light"
-      seo={{
-        title: 'Electronic Nicotine Delivery Devices – Concept Vapor Solutions',
-        description:
-          'High-precision ENDD manufacturing for next-generation nicotine delivery. Single-use devices, pods, bottled e-liquids, and snus pouches.',
-      }}
+      seo={seoConfig.endd}
     >
       <main className={s.page}>
         {/* Hero */}
         <section className={s.hero}>
           <div className={s.heroImage}>
             <Image
-              src="/images/products/endd/endd-hero.webp"
-              alt="Electronic Nicotine Delivery Devices"
+              src={endd.hero.image}
+              alt={endd.hero.label}
               fill
               className={s.heroImageBg}
               priority
@@ -128,13 +43,13 @@ export default function ENDD() {
           </div>
           <div className={s.heroOverlay}>
             <div className={cn('layout-block', s.heroContent)}>
-              <div className={s.heroLabel}>Electronic Nicotine Delivery Devices</div>
+              <div className={s.heroLabel}>{endd.hero.label}</div>
               <h1 className={cn('h1', s.heroTitle)}>
                 <AppearTitle>
-                  Precision. Purity. Performance.
+                  {endd.hero.title}
                 </AppearTitle>
               </h1>
-              <p className={cn('p-l', s.heroTagline)}>Next-Generation Nicotine Delivery</p>
+              <p className={cn('p-l', s.heroTagline)}>{endd.hero.tagline}</p>
             </div>
           </div>
         </section>
@@ -144,15 +59,12 @@ export default function ENDD() {
           <div className="layout-block">
             <ScrollReveal animation="fade-up">
               <p className={cn('p-l', s.introText)}>
-                Our ENDD division is engineered to support brands, distributors, and private-label partners
-                seeking world-class manufacturing with uncompromising quality.
+                {endd.intro.text}
               </p>
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={100}>
               <p className={cn('p', s.introSubtext)}>
-                Every product is crafted inside ISO Class 7 and 8 cleanrooms, ensuring purity, consistency,
-                and regulatory alignment at every stage of production. We deliver the precision, reliability,
-                and adaptability required in this dynamic global category.
+                {endd.intro.subtext}
               </p>
             </ScrollReveal>
           </div>
@@ -211,13 +123,12 @@ export default function ENDD() {
           <div className="layout-block">
             <div className={s.capabilitiesGrid}>
               <ScrollReveal animation="fade-right" className={s.capabilitiesContent}>
-                <div className={s.sectionLabel}>Manufacturing</div>
+                <div className={s.sectionLabel}>{endd.capabilities.label}</div>
                 <h2 className={cn('h2', s.sectionTitle)}>
-                  <AppearTitle>Built for Scale & Precision</AppearTitle>
+                  <AppearTitle>{endd.capabilities.title}</AppearTitle>
                 </h2>
                 <p className={cn('p', s.capabilitiesDescription)}>
-                  Our ENDD manufacturing combines advanced automation with rigorous quality control,
-                  delivering consistent results from pilot batches to full-scale production.
+                  {endd.capabilities.description}
                 </p>
               </ScrollReveal>
 
@@ -241,9 +152,9 @@ export default function ENDD() {
           <div className="layout-block">
             <ScrollReveal animation="fade-up">
               <div className={s.partnershipHeader}>
-                <div className={s.sectionLabel}>Partnership</div>
+                <div className={s.sectionLabel}>{endd.partnership.label}</div>
                 <h2 className={cn('h2', s.sectionTitle)}>
-                  Why Partner With Us
+                  {endd.partnership.title}
                 </h2>
               </div>
             </ScrollReveal>
@@ -264,8 +175,7 @@ export default function ENDD() {
 
             <ScrollReveal animation="scale" delay={300} className={s.partnershipCta}>
               <p className={cn('p-l', s.partnershipCtaText)}>
-                Whether you're launching a new brand, scaling an existing product line, or seeking specialized
-                contract manufacturing, we deliver the precision and reliability you need.
+                {endd.partnership.cta}
               </p>
             </ScrollReveal>
           </div>
@@ -279,6 +189,7 @@ export async function getStaticProps() {
   return {
     props: {
       id: 'endd',
+      seo: seoConfig.endd,
     },
   }
 }

@@ -3,6 +3,8 @@ import { Image } from 'components/image'
 import { Layout } from 'layouts/default'
 import dynamic from 'next/dynamic'
 import s from './about.module.scss'
+import { about } from 'content/about'
+import { seoConfig } from 'content/seo'
 
 const AppearTitle = dynamic(
   () => import('components/appear-title').then((mod) => mod.AppearTitle),
@@ -15,32 +17,7 @@ const ScrollReveal = dynamic(
 )
 
 export default function About() {
-  const pillars = [
-    {
-      number: '01',
-      title: 'Scientific Rigor',
-      description:
-        'Every product is developed using evidence-based formulation principles, analytical testing, and controls that exceed industry norms.',
-    },
-    {
-      number: '02',
-      title: 'Clean & Responsible Manufacturing',
-      description:
-        'Our ISO Class 7 and 8 cleanrooms reflect our commitment to maintaining the strictest hygiene protocols to protect product purity and consumer trust.',
-    },
-    {
-      number: '03',
-      title: 'Innovation With Purpose',
-      description:
-        'We design solutions that address real-world needs—whether in electronic nicotine delivery, functional nutrition, or pharmaceutical applications—focusing on efficacy, safety, and the user experience.',
-    },
-    {
-      number: '04',
-      title: 'Partnership & Transparency',
-      description:
-        'We believe in cultivating long-term relationships built on traceability, consistency, and complete visibility from formulation to final production.',
-    },
-  ]
+  const pillars = about.foundation.pillars
 
   const locationFeatures = [
     {
@@ -50,7 +27,7 @@ export default function About() {
           <circle cx="12" cy="12" r="3" />
         </svg>
       ),
-      label: 'Logistics',
+      label: about.content.right.features[0].label,
     },
     {
       icon: (
@@ -60,7 +37,7 @@ export default function About() {
           <path d="M3 12h18M12 3v18" />
         </svg>
       ),
-      label: 'Infrastructure',
+      label: about.content.right.features[1].label,
     },
     {
       icon: (
@@ -69,7 +46,7 @@ export default function About() {
           <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
         </svg>
       ),
-      label: 'Regulation',
+      label: about.content.right.features[2].label,
     },
   ]
 
@@ -80,7 +57,7 @@ export default function About() {
         <section className={s.hero}>
           <div className={s.heroImage}>
             <Image
-              src="/images/about-us/cvs-hero.webp"
+              src={about.hero.image}
               alt="Concept Vapor Solutions Manufacturing Facility"
               fill
               className={s.heroImageBg}
@@ -93,10 +70,10 @@ export default function About() {
           <div className={s.heroOverlay}>
             <div className="layout-block">
               <div className={s.heroContent}>
-                <div className={s.heroLabel}>About Us</div>
+                <div className={s.heroLabel}>{about.hero.label}</div>
                 <h1 className={cn('h1', s.heroTitle)}>
                   <AppearTitle>
-                    Engineering the Future of Clean Manufacturing
+                    {about.hero.title}
                   </AppearTitle>
                 </h1>
               </div>
@@ -112,15 +89,13 @@ export default function About() {
               <div className={s.contentLeft}>
                 <ScrollReveal animation="fade-up" delay={0}>
                   <p className={cn('p', s.contentText)}>
-                    Concept Vapor Solutions was founded with a singular vision: to build a world-class
-                    manufacturing ecosystem where scientific precision, responsible innovation, and
-                    uncompromising hygiene come together to create products that elevate modern wellness.
+                    {about.content.left.text}
                   </p>
                 </ScrollReveal>
                 <ScrollReveal animation="fade-up" delay={100}>
                   <div className={s.equipmentImage}>
                     <Image
-                      src="/images/about-us/cvs-equipment.webp"
+                      src={about.content.left.image}
                       alt="Manufacturing Equipment"
                       width={800}
                       height={600}
@@ -138,7 +113,7 @@ export default function About() {
                 <ScrollReveal animation="fade-up" delay={150}>
                   <div className={s.mapContainer}>
                     <Image
-                      src="/images/about-us/cvs-map.webp"
+                      src={about.content.right.mapImage}
                       alt="Jebel Ali Free Zone of Dubai Location"
                       width={800}
                       height={450}
@@ -151,10 +126,7 @@ export default function About() {
                 </ScrollReveal>
                 <ScrollReveal animation="fade-up" delay={200}>
                   <p className={cn('p', s.contentText)}>
-                    Located in the dynamic Jebel Ali Free Zone of Dubai, our facility benefits from a
-                    globally connected logistics hub, advanced infrastructure, and a regulatory environment
-                    designed for international excellence. From this strategic location, we serve partners
-                    across the Middle East, Asia, Europe, and beyond.
+                    {about.content.right.text}
                   </p>
                 </ScrollReveal>
                 <ScrollReveal animation="fade-up" delay={250}>
@@ -178,18 +150,16 @@ export default function About() {
             <div className={s.mvContainer}>
               <div className={s.mvGrid}>
                 <ScrollReveal animation="fade-right" className={s.mvItem}>
-                  <div className={s.mvLabel}>Our Mission</div>
+                  <div className={s.mvLabel}>{about.missionVision.mission.label}</div>
                   <p className={cn('p', s.mvText)}>
-                    To craft innovative, clean-label, and high-precision products that enhance consumer
-                    well-being while upholding the highest global standards of safety, purity, and performance.
+                    {about.missionVision.mission.text}
                   </p>
                 </ScrollReveal>
 
                 <ScrollReveal animation="fade-left" delay={150} className={s.mvItem}>
-                  <div className={s.mvLabel}>Our Vision</div>
+                  <div className={s.mvLabel}>{about.missionVision.vision.label}</div>
                   <p className={cn('p', s.mvText)}>
-                    To become a global reference point for advanced manufacturing and value adding—leading
-                    the evolution of electronic delivery systems, functional foods, and pharmaceutical technologies.
+                    {about.missionVision.vision.text}
                   </p>
                 </ScrollReveal>
               </div>
@@ -203,10 +173,10 @@ export default function About() {
             <ScrollReveal animation="fade-up">
               <div className={s.foundationHeader}>
                 <h2 className={cn('h2', s.foundationTitle)}>
-                  <AppearTitle>Our Foundation of Excellence</AppearTitle>
+                  <AppearTitle>{about.foundation.title}</AppearTitle>
                 </h2>
                 <p className={cn('p', s.foundationSubtitle)}>
-                  Our approach is rooted in four core pillars:
+                  {about.foundation.subtitle}
                 </p>
               </div>
             </ScrollReveal>
@@ -233,41 +203,27 @@ export default function About() {
           <div className="layout-block">
             <div className={s.teamGrid}>
               <ScrollReveal animation="fade-right" className={s.teamContent}>
-                <div className={s.teamLabel}>Our Team</div>
+                <div className={s.teamLabel}>{about.team.label}</div>
                 <h2 className={cn('h2', s.teamTitle)}>
-                  <AppearTitle>Driven by Excellence</AppearTitle>
+                  <AppearTitle>{about.team.title}</AppearTitle>
                 </h2>
                 <div className={s.teamTextWrapper}>
-                  <p className={cn('p', s.teamText)}>
-                    Our multidisciplinary team includes chemical and electrical engineers, quality specialists,
-                    nutrition experts, and product development professionals.
-                  </p>
-                  <p className={cn('p', s.teamText)}>
-                    Together, they ensure that each concept, formulation, ingredient and finished product meets
-                    the highest expectations of performance and reliability.
-                  </p>
-                  <p className={cn('p', s.teamText)}>
-                    Whether developing a new functional beverage, refining a nicotine delivery system, or
-                    engineering a pharmaceutical-grade delivery device, our team brings precision, integrity,
-                    and craftsmanship to every stage of production.
-                  </p>
+                  {about.team.paragraphs.map((text, i) => (
+                    <p key={i} className={cn('p', s.teamText)}>
+                      {text}
+                    </p>
+                  ))}
                 </div>
               </ScrollReveal>
 
               <ScrollReveal animation="fade-left" delay={200} className={s.teamVisual}>
                 <div className={s.teamStats}>
-                  <div className={s.stat}>
-                    <span className={s.statNumber}>50+</span>
-                    <span className={s.statLabel}>Expert Team Members</span>
-                  </div>
-                  <div className={s.stat}>
-                    <span className={s.statNumber}>15+</span>
-                    <span className={s.statLabel}>Years Combined Experience</span>
-                  </div>
-                  <div className={s.stat}>
-                    <span className={s.statNumber}>6</span>
-                    <span className={s.statLabel}>Core Disciplines</span>
-                  </div>
+                  {about.team.stats.map((stat, i) => (
+                    <div key={i} className={s.stat}>
+                      <span className={s.statNumber}>{stat.number}</span>
+                      <span className={s.statLabel}>{stat.label}</span>
+                    </div>
+                  ))}
                 </div>
               </ScrollReveal>
             </div>
@@ -279,16 +235,15 @@ export default function About() {
           <div className="layout-block">
             <ScrollReveal animation="scale" className={s.standardsContent}>
               <h2 className={cn('h2', s.standardsTitle)}>
-                Setting New Industry Standards
+                {about.standards.title}
               </h2>
               <p className={cn('p-l', s.standardsText)}>
-                Concept Vapor Solutions is more than a manufacturing facility—we are a forward-thinking
-                innovation center.
+                {about.standards.text}
               </p>
               <div className={s.promise}>
-                <span className={s.promiseLabel}>Our Promise</span>
+                <span className={s.promiseLabel}>{about.standards.promise.label}</span>
                 <p className={cn('h3', s.promiseText)}>
-                  Deliver products you can trust, built in an environment designed for excellence.
+                  {about.standards.promise.text}
                 </p>
               </div>
             </ScrollReveal>
@@ -303,11 +258,7 @@ export async function getStaticProps() {
   return {
     props: {
       id: 'about',
-      seo: {
-        title: 'About Us – Concept Vapor Solutions',
-        description:
-          'Engineering the future of clean, high-performance manufacturing. Founded with a vision to build a world-class manufacturing ecosystem where scientific precision, responsible innovation, and uncompromising hygiene come together.',
-      },
+      seo: seoConfig.about,
     },
   }
 }

@@ -5,12 +5,12 @@ import { Button } from 'components/button'
 import { Card } from 'components/card'
 import { Image } from 'components/image'
 import { Title } from 'components/intro'
-import { Link } from 'components/link'
 import { ListItem } from 'components/list-item'
 import { projects } from 'content/projects'
+import { home } from 'content/home'
+import { seoConfig } from 'content/seo'
 import { useScroll } from 'hooks/use-scroll'
 import { Layout } from 'layouts/default'
-import { button, useControls } from 'leva'
 import { clamp, mapRange } from 'lib/maths'
 import { useStore } from 'lib/store'
 import dynamic from 'next/dynamic'
@@ -18,7 +18,6 @@ import { useEffect, useRef, useState } from 'react'
 import { useIntersection, useWindowSize } from 'react-use'
 import s from './home.module.scss'
 
-// const SFDR = dynamic(() => import('icons/sfdr.svg'), { ssr: false })
 const Sponsor = dynamic(() => import('icons/sponsor.svg'), { ssr: false })
 const ArrowRight = dynamic(() => import('icons/arrow-right.svg'), { ssr: false })
 
@@ -70,39 +69,6 @@ export default function Home() {
 
   const [theme, setTheme] = useState('dark')
   const lenis = useStore(({ lenis }) => lenis)
-
-  useControls(
-    'lenis',
-    () => ({
-      stop: button(() => {
-        lenis.stop()
-      }),
-      start: button(() => {
-        lenis.start()
-      }),
-    }),
-    [lenis]
-  )
-
-  useControls(
-    'scrollTo',
-    () => ({
-      immediate: button(() => {
-        lenis.scrollTo(30000, { immediate: true })
-      }),
-      smoothDuration: button(() => {
-        lenis.scrollTo(30000, { lock: true, duration: 10 })
-      }),
-      smooth: button(() => {
-        lenis.scrollTo(30000)
-      }),
-      forceScrollTo: button(() => {
-        lenis.scrollTo(30000, { force: true })
-      }),
-    }),
-    [lenis]
-  )
-
 
   useScroll(({ scroll }) => {
     setHasScrolled(scroll > 10)
@@ -194,15 +160,12 @@ export default function Home() {
   return (
     <Layout
       theme={theme}
-      seo={{
-        title: 'Concept Vapor Solutions – Next-Generation Manufacturing',
-        description:
-          'Delivering next-generation vapor technologies, functional nutrition, and advanced supplementation formats from Dubai\'s premier manufacturing hub.',
-      }}
+      seo={seoConfig.home}
       className={s.home}
     >
       <div className={s.canvas}>
         <WebGL />
+        <div className={s.canvasOverlay} />
       </div>
 
       <section className={s.hero}>
@@ -223,14 +186,13 @@ export default function Home() {
         </div>
         <div className="layout-grid-inner">
           <Title className={s.title} />
-          {/* <SFDR className={cn(s.icon, introOut && s.show)} /> */}
           <span className={cn(s.sub)}>
             <HeroTextIn introOut={introOut}>
-              <h2 className={cn('h3', s.subtitle)}>Innovation. Precision. Compliance.</h2>
+              <h2 className={cn('h3', s.subtitle)}>{home.hero.subtitle}</h2>
             </HeroTextIn>
             <HeroTextIn introOut={introOut}>
               <h2 className={cn('p-xs', s.tm)}>
-                <span>©</span> {new Date().getFullYear()} Concept Vapor Solutions
+                <span>©</span> {new Date().getFullYear()} {home.hero.title}
               </h2>
             </HeroTextIn>
           </span>
@@ -254,24 +216,20 @@ export default function Home() {
               </HeroTextIn>
             </div>
           </div>
-          <h1 className={cn(s.description, 'p-s')}>
+          <div className={cn(s.description, 'p-s')}>
             <HeroTextIn introOut={introOut}>
-              <p className="p-s">Delivering next-generation vapor technologies</p>
+              <p className="p-s">
+                {home.hero.description}
+              </p>
             </HeroTextIn>
-            <HeroTextIn introOut={introOut}>
-              <p className="p-s">functional nutrition, and advanced supplementation</p>
-            </HeroTextIn>
-            <HeroTextIn introOut={introOut}>
-              <p className="p-s">from Dubai's premier manufacturing hub</p>
-            </HeroTextIn>
-          </h1>
+          </div>
           <Button
             className={cn(s.cta, s.documentation, introOut && s.in)}
             arrow
             icon={<ArrowRight />}
             href="#divisions"
           >
-            explore solutions
+            {home.hero.cta.explore}
           </Button>
           <Button
             className={cn(s.cta, s.sponsor, introOut && s.in)}
@@ -279,7 +237,7 @@ export default function Home() {
             icon={<Sponsor />}
             href="/contact"
           >
-            contact us
+            {home.hero.cta.contact}
           </Button>
         </div>
       </section>
@@ -287,55 +245,20 @@ export default function Home() {
       <section className={s.why} data-lenis-scroll-snap-align="start">
         <div className="layout-grid">
           <h2 className={cn(s.sticky, 'h2')}>
-            <AppearTitle>Why choose us?</AppearTitle>
+            <AppearTitle>{home.why.title}</AppearTitle>
           </h2>
-          <aside className={s.features} ref={whyRectRef}>
-            <div className={s.feature}>
-              <p className="p">
-                We've heard all the reasons to be cautious about manufacturing
-                partners. Quality concerns. Compliance risks. Supply chain
-                delays. Communication gaps. And historically, those were all
-                valid concerns. But we like to imagine manufacturing as it could
-                be, then build it. So, why should you choose Concept Vapor
-                Solutions?
-              </p>
-            </div>
-            <div className={s.feature}>
-              <h3 className={cn(s.title, 'h4')}>
-                World-class manufacturing standards
-              </h3>
-              <p className="p">
-                Unlock the potential of your product vision with ISO Class 7 and
-                8 cleanrooms, GMP-compliant processes, and rigorous quality
-                controls. Our facility pulls your products through a manufacturing
-                flow so precise that quality becomes second nature.
-              </p>
-            </div>
-            <div className={s.feature}>
-              <h3 className={cn(s.title, 'h4')}>
-                End-to-end regulatory compliance
-              </h3>
-              <p className="p">
-                Give all your products the same (certified) experience whether
-                they're ENDD devices, functional foods, or pharmaceutical
-                formats. With our comprehensive compliance framework, you control
-                how precise, compliant, and market-ready your products should be
-                — no matter the category. Excellence!
-              </p>
-            </div>
-            <div className={s.feature}>
-              <h3 className={cn(s.title, 'h4')}>
-                Innovation-driven product development
-              </h3>
-              <p className="p">
-                Synchronization between R&D and production is critical. Those
-                delays and inconsistencies in product development are caused by
-                disconnected processes, where traditional manufacturers run
-                development and production separately. Our integrated approach
-                fixes this.
-              </p>
-            </div>
-          </aside>
+          <div className={s.features} ref={whyRectRef}>
+            {home.why.features.map((feature, i) => (
+              <div key={i} className={s.feature}>
+                <h3 className={cn(s.title, 'h4')}>
+                  {feature.title}
+                </h3>
+                <p className="p">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       <section className={s.rethink}>
@@ -343,50 +266,28 @@ export default function Home() {
           <div className={s.highlight} data-lenis-scroll-snap-align="start">
             <Parallax speed={-0.5}>
               <p className="h2">
-                <AppearTitle>Rethinking manufacturing</AppearTitle>
+                <AppearTitle>{home.rethink.title}</AppearTitle>
               </p>
             </Parallax>
           </div>
           <div className={s.comparison}>
             <Parallax speed={0.5}>
               <p className="p">
-                We have to give props to traditional manufacturers. They're
-                established and experienced – and we've learned from them a lot.
-                But they still have limitations that keep them from being truly
-                innovative. We've built something different: a manufacturing
-                partner that combines precision, compliance, and innovation in
-                one integrated facility.
+                {home.rethink.description}
               </p>
             </Parallax>
           </div>
         </div>
         <div className={s.cards} ref={cardsRectRef}>
           <HorizontalSlides>
-            <Card
-              className={s.card}
-              number="01"
-              text="ISO Class 7 & 8 cleanrooms ensuring pharmaceutical-grade quality standards"
-            />
-            <Card
-              className={s.card}
-              number="02"
-              text="Full ESMA & UAE regulatory compliance with dedicated quality assurance teams"
-            />
-            <Card
-              className={s.card}
-              number="03"
-              text="Integrated R&D capabilities reducing time-to-market by up to 40%"
-            />
-            <Card
-              className={s.card}
-              number="04"
-              text="Multi-format expertise across ENDD, functional foods, and pharmaceutical delivery"
-            />
-            <Card
-              className={s.card}
-              number="05"
-              text="Strategic Dubai location providing global logistics access and market reach"
-            />
+            {home.rethink.cards.map((card, i) => (
+              <Card
+                key={i}
+                className={s.card}
+                number={card.number}
+                text={card.text}
+              />
+            ))}
           </HorizontalSlides>
         </div>
       </section>
@@ -400,14 +301,17 @@ export default function Home() {
         <div className={s.inner}>
           <div className={s.mist} />
           <div className={s.zoom}>
-            <h2 className={cn(s.first, 'h1 vh')}>
-              world-class <br />
-              <span className="contrast">manufacturing</span>
-            </h2>
-            <h2 className={cn(s.enter, 'h3 vh')}>
-              <br />
-            </h2>
-            <h2 className={cn(s.second, 'h1 vh')}>Innovation. Precision. Compliance.</h2>
+            {home.solution.transition.map((step, i) => (
+              <h2 
+                key={i} 
+                className={cn(
+                  i === 0 ? s.first : i === 1 ? s.enter : s.second, 
+                  'h1 vh'
+                )}
+              >
+                {step.text} {step.contrast && <><br /><span className="contrast">{step.contrast}</span></>}
+              </h2>
+            ))}
           </div>
         </div>
       </section>
@@ -415,17 +319,7 @@ export default function Home() {
         <div className={s.inner}>
           <div className={cn('layout-block', s.intro)}>
             <p className="p-l">
-              Concept Vapor Solutions is a{' '}
-              <Link
-                className="contrast semi-bold"
-                href="/about"
-              >
-                world-class manufacturing facility
-              </Link>{' '}
-              built to deliver next-generation vapor technologies, functional
-              nutrition, and advanced supplementation formats. We combine
-              scientific rigor with clean manufacturing practices, all while
-              maintaining the highest compliance standards.
+              {home.solution.intro}
             </p>
           </div>
         </div>
